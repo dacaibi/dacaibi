@@ -1,0 +1,26 @@
+@import '../config/config';
+
+div{
+  $w:320;
+  $p:10;
+  width:px2rem($w);
+  padding: px2rem($p);
+  background: #ff0000;
+  &.on{
+    background: #ffffff;
+  }
+  h2{
+    width: px2rem($w);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
