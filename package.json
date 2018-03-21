@@ -1,0 +1,25 @@
+{
+  "name": "dacaibi",
+  "version": "1.0.0",
+  "description": "* git 把代码克隆到本地\r ```\r git clone 项目地址\r ```",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dacaibi/dacaibi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dacaibi/dacaibi/issues"
+  },
+  "homepage": "https://github.com/dacaibi/dacaibi#readme"
+}
