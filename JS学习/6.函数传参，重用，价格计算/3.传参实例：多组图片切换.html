@@ -17,38 +17,39 @@
                 background: #333;
             }
 
-            #pic {
+            .box {
                 background: url("../images/1.gif") no-repeat center #fff;
-                margin: 0 auto;
+                float: left;
+                margin-right: 60px;
                 width: 400px;
                 height: 500px;
                 position: relative;
             }
 
-            #pic ul {
+            .box ul {
                 width: 40px;
                 position: absolute;
                 top: 0;
                 right: -50px;
             }
 
-            #pic li {
+            .box li {
                 width: 40px;
                 height: 40px;
                 margin-bottom: 4px;
                 background: #666;
             }
 
-            #pic img {
+            .box img {
                 width: 400px;
                 height: 500px;
             }
 
-            #pic .active {
+            .box .active {
                 background: #fC3;
             }
 
-            #pic span, #pic p {
+            .box span, .box p {
                 background: #000;
                 left: 0;
                 position: absolute;
@@ -59,25 +60,36 @@
                 color: #fff;
             }
 
-            #pic p {
+            .box p {
                 margin: 0;
                 bottom: 0;
             }
 
-            #pic span {
+            .box span {
                 top: 0;
             }
         </style>
         <script>
-            window.onload = function () {
-                var oDiv = document.getElementById('pic');
+            /*
+            重用代码
+            1.尽量保证HTML代码结构一致,可以通过父级选取子元素
+            2.把核心的主程序实现，用一个函数包起来
+            3.把每组里不同值找不出来，通过传参实现
+            */
+            window.onload =function(){
+                fnTab('pic1',['../images/5.jpg', '../images/6.jpg', '../images/7.jpg', '../images/8.jpg'],['傻逼1', '傻逼2', '傻逼3', '傻逼4'],'onclick');
+                fnTab('pic2',['../images/1.jpg', '../images/2.jpg', '../images/3.jpg'],['傻逼1','傻逼2','傻逼3'],'onmouseover');
+            };
+
+                function fnTab(id,arrUrl,arrText,evt) {
+                var oDiv = document.getElementById(id);
                 var oImg = oDiv.getElementsByTagName('img')[0];
                 var oSpan = oDiv.getElementsByTagName('span')[0];
                 var oP = oDiv.getElementsByTagName('p')[0];
                 var oUl = oDiv.getElementsByTagName('ul')[0];
                 var aLi = oDiv.getElementsByTagName('li');
-                var arrUrl = ['../images/5.jpg', '../images/6.jpg', '../images/7.jpg', '../images/8.jpg'];
-                var arrText = ['傻逼1', '傻逼2', '傻逼3', '傻逼4'];
+
+
                 var num = 0;
                 var oTop=null;
                 for (var i = 0; i < arrUrl.length; i++) {
@@ -92,7 +104,7 @@
 
                 for (var i = 0; i < aLi.length; i++) {
                     aLi[i].index = i;//索引值
-                    aLi[i].onclick = function () {
+                    aLi[i][evt] = function () {
                         oImg.src = arrUrl[this.index];
                         oP.innerHTML = arrText[this.index];
                         oSpan.innerHTML = 1 + this.index + '/' + arrText.length;
@@ -123,7 +135,14 @@
         </script>
     </head>
     <body>
-        <div id="pic">
+        <div id="pic1" class="box">
+            <img src="" alt=""/>
+            <span>数量正在加载.....</span>
+            <p>文字说明正在加载中.....</p>
+            <ul>
+            </ul>
+        </div>
+        <div id="pic2" class="box">
             <img src="" alt=""/>
             <span>数量正在加载.....</span>
             <p>文字说明正在加载中.....</p>
