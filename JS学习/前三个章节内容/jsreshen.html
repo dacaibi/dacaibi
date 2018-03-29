@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div1{
+                width: 200px;
+                height: 200px;
+                background: #000000;
+                transition: 0.4s;
+            }
+            .div1.on{
+                background:#ff0000;
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+        <script>
+            window.onload=function () {
+                var oBtn1=document.querySelector('.show_btn');
+                var oBtn2=document.querySelector('.hide_btn');
+                var oDiv=document.querySelector('.div1');
+
+                oBtn1.onclick=function() {
+                        oDiv.classList.add('on');
+                };
+                oBtn2.onclick=function() {
+                    oDiv.classList.remove('on');
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <input class="show_btn" type="button" value="add on">
+        <input class="hide_btn" type="button" value="remove on">
+        <div class="div1"></div>
+    </body>
+</html>

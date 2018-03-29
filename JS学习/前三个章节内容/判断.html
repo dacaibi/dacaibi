@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+                var oBtn1=document.getElementById('btn1');
+                var oBtn2=document.getElementById('btn2');
+                var oP1=document.getElementById('p1');
+                var num=15;
+
+                oBtn1.onclick=function () {
+                    if(num>12){
+                        num--;
+                        oP1.style.fontSize=num+'px';
+                    };
+                };
+                oBtn2.onclick=function () {
+                    if(num<22){
+                        num++;
+                        oP1.style.fontSize=num+'px';
+                    };
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <input id="btn1" type="button" value="-">
+        <input id="btn2" type="button" value="+">
+        <div id="p1" style=" font-size:24px;">卡涉收到收到所多撒大所大所大及到哈就开始打哈就开始电话卡建设大街卡仕达手机客户端卡机</div>
+    </body>
+</html>

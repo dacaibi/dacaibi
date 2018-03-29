@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                position: absolute;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                background: #f00;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var init = 0;
+                var gap = 10;
+                var w = 20 + 5;
+                for (var i = 0; i < 21; i++) {
+                    var num = i;
+                    if (num > gap) {
+                        init++;
+                        num = gap - init;
+                    }
+                    var left = i * w;
+                    var top = num * w;
+                    document.body.innerHTML += '<div style="left:' + left + 'px;top:' + top + 'px">' + i + '</div>';
+                }
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

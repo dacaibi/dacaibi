@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cont {
+                text-indent: 10px;
+                width: 200px;
+            }
+
+            .z {
+                font-size: 24px;
+                background: #66FFFF;
+            }
+
+            .h {
+                display: none;
+            }
+
+            .h div {
+                text-indent: 30px;
+            }
+
+            .bl {
+                background: #ffCC33;
+            }
+            .br{ background: #ffff99;}
+        </style>
+        <script>
+            window.onload = function () {
+                var z = document.querySelectorAll('.z');
+                var h = document.querySelectorAll('.h');
+                var div=document.querySelectorAll('.hy');
+                for( var k=0; k<div.length; k++){
+
+                    div[k].onmouseover=function (ev) {
+                        // ev.stopPropagation(); 阻止冒泡
+                        // ev.preventDefault(); 阻止默认行为
+                        for( var u=0; u<div.length; u++){
+                            div[u].classList.remove('br');
+                        }
+                        this.classList.add('br');
+                        //console.log(k);
+                    }
+                }
+                for (var i = 0; i < z.length; i++) {
+                    z[i].index=i;
+                    z[i].onclick = function () {
+                        if(this.classList.contains('bl')){
+                            this.classList.remove('bl');
+                            h[this.index].style.display='none';
+                        }else{
+                            for (var j = 0; j < z.length; j++) {
+                                z[j].classList.remove('bl');
+                                h[j].style.display='none';
+                            }
+                            this.classList.add('bl');
+                            h[this.index].style.display='block';
+                        }
+
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <div class="z">Z</div>
+            <div class="h">
+                <div class="hy">好友1</div>
+                <div class="hy">好友2</div>
+                <div class="hy">好友3</div>
+            </div>
+            <div class="z">H</div>
+            <div class="h">
+                <div class="hy">好友4</div>
+                <div class="hy">好友5</div>
+                <div class="hy">好友6</div>
+                <div class="hy">好友7</div>
+            </div>
+            <div class="z">h</div>
+            <div class="h">
+                <div class="hy">好友8</div>
+                <div class="hy">好友9</div>
+                <div class="hy">好友10</div>
+                <div class="hy">好友11</div>
+                <div class="hy">好友12</div>
+            </div>
+        </div>
+    </body>
+</html>

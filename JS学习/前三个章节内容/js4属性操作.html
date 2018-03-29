@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+                var oBtn=document.getElementById('btn1');
+                var oText=document.getElementById('text1');
+                var oImg=document.getElementById('img');
+                oBtn.onclick=function () {
+                    oImg.src=oText.value;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <input id="text1" type="text">
+        <input id="btn1" type="button" value="按钮">
+        <br/>
+        <img id="img" src="images/timg.jpg" width="300"/>
+    </body>
+</html>

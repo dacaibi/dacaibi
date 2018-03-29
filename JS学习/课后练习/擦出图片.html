@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cont {
+                position: relative;
+                margin: 0 auto;
+                width: 500px;
+                height: 500px;
+                border: 5px solid #cccccc;
+                background: url("../images/6.jpg");
+            }
+
+            .cont div {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                background: #66FFFF;
+                border: 1px solid #ffCC33;
+                box-sizing: border-box;
+                transition: 0.4s;
+            }
+
+            /*
+            .xs {
+                transition: 0.4s;
+                width: 0;
+                height: 0;
+            }*/
+        </style>
+        <script>
+            window.onload = function () {
+                var cont = document.querySelector('.cont');
+                var div = cont.getElementsByTagName('div');
+                var str = '';
+                var l = 0;
+                var t = 0;
+
+                for (var i = 0; i < 100; i++) {
+                    l = (i % 10) * 50;//磨出
+                    t = Math.floor(i / 10) * 50;//向下取整
+                    str += '<div style="left:' + l + 'px; top:' + t + 'px;"></div>';
+                }
+                cont.innerHTML = str;
+                for (var i = 0; i < 100; i++) {
+                    div[i].onmouseover = function () {
+                        this.style.transform = 'scale(0) rotate(50deg)';
+                    }
+                }
+                // document.addEventListener('click', function (ev) {
+                //     var i = 99;
+                //     while (i !== -1) {
+                //         console.log(i);
+                //         setTimeout(function (i) {
+                //             div[99 - i].style.transitionDelay = 0.01 * i + 's';
+                //             div[i].style.transform = 'scale(0) rotate(50deg)';
+                //         }, 400, i);
+                //         i--;
+                //     }
+                // })
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <div></div>
+        </div>
+    </body>
+</html>

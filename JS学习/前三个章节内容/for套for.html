@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+                var oUl=document.getElementById('list');
+                var aUl=oUl.getElementsByTagName('ul');
+                var len=aUl.length;
+                var aLi=null;
+
+                for ( var i=0; i<len; i++){
+                    aLi=aUl[i].getElementsByTagName('li');
+
+                    for( var j=0; j<aLi.length; j++){
+                        aLi[j].style.border='1px solid red';
+                    };
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <ul id="list">
+            <li>
+                <h2>我的好友</h2>
+                <ul>
+                    <li>周华飞</li>
+                    <li>周蒙蒙</li>
+                    <li>王东东</li>
+                </ul>
+            </li>
+            <li><ol><li>NO</li><li>NO</li><li>NO</li></ol></li>
+            <li>
+                <h2>我的坏友</h2>
+                <ul>
+                    <li>周华飞</li>
+                    <li>周蒙蒙</li>
+                </ul>
+            </li>
+            <li><ol><li>NO</li><li>NO</li><li>NO</li></ol></li>
+            <li>
+                <h2>我的黑友</h2>
+                <ul>
+                    <li>周华飞</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

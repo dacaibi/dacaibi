@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="../css/zero.css">
+        <style>
+            #list {
+                margin: 0 auto;
+                width: 240px;
+                border: 1px solid #333;
+            }
+
+            #list .lis {
+            }
+
+            #list .h2 {
+                background: url("../images/y.png") no-repeat 5px center #6FF;
+                height: 30px;
+                line-height: 30px;
+                text-indent: 20px;
+            }
+
+            #list .ul:last-child .li:last-child {
+                border: none;
+            }
+
+            #list .ul {
+                display: none;
+
+            }
+
+            #list .ul .li {
+                text-indent: 24px;
+                line-height: 24px;
+                border-bottom: 1px solid #333;
+            }
+
+            #list .item.active .h2 {
+                text-indent: 20px;
+                background: url("../images/x.png") no-repeat 5px center #ff9;
+            }
+
+            #list .item.active .ul {
+                display: block;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var oDiv = document.querySelector('#list');
+                var aH2 = oDiv.querySelectorAll('.h2');
+                var aUl = oDiv.querySelectorAll('.ul');
+                var aItem = oDiv.querySelectorAll('.item');
+                var aLi = null;
+
+                for (var i = 0; i < aH2.length; i++) {
+                    aH2[i].index = i;
+                    aH2[i].onclick = function () {
+                        // 1
+                        aItem[this.index].classList.toggle('active');
+                        // 2
+                        // this.parentNode.classList.toggle('active');
+                        // 3
+                        /*
+                        if (this.classList.contains('active')) {
+                            aUl[this.index].style.display = 'none';
+                            this.classList.remove('active');
+                        } else {
+                            aUl[this.index].style.display = 'block';
+                            this.classList.add('active');
+                        }
+                        */
+                    }
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div id="list">
+            <div class="lis">
+                <div class="item">
+                    <div class="h2">我的好友</div>
+                    <div class="ul">
+                        <div class="li">张三</div>
+                        <div class="li">张三</div>
+                        <div class="li">张三</div>
+                        <div class="li">张三</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="h2">企业好友</div>
+                    <div class="ul">
+                        <div class="li">李四</div>
+                        <div class="li">李四</div>
+                        <div class="li">李四</div>
+                        <div class="li">李四</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="h2">黑名单</div>
+                    <div class="ul">
+                        <div class="li">李小四</div>
+                        <div class="li">张小三</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

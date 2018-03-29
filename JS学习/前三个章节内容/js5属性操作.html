@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+                var oBtn=document.getElementById('btn1');
+                var oText=document.getElementById('text1');
+                var oP1=document.getElementById('p1');
+                oBtn.onclick=function () {
+                    oP1.innerHTML=oText.value;
+                    oText.value='';
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <input id="text1" type="text">
+        <input id="btn1" type="button" value="按钮">
+        <p id="p1"></p>
+    </body>
+</html>

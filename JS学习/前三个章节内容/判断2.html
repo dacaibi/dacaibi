@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+                var oText=document.getElementById('text');
+                var oBtn=document.getElementById('btn');
+                oBtn.onclick=function () {
+                    if (oText.value == '') {
+                        alert('请输入东西傻逼');
+                    }
+                        else if(oText.value == 'CSS'){
+                            alert('你写的啥CSS,通过');
+                        }
+                        else if(oText.value == 'JS'){
+                            alert('你写的啥CSS,通过');
+                        }
+                        else if(oText.value == 'HTML'){
+                            alert('你写的啥CSS,通过');
+                        }else {
+                            alert('傻逼你输入的:'+oText.value+'不给过');
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        通关口令:
+        <input id="text" type="text">
+        <input id="btn" type="button" value="验证">
+    </body>
+</html>

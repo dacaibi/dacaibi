@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+
+            /* 盒模型重置 */
+            *, *:before, *:after {
+                box-sizing: border-box;
+            }
+
+            /* 主体重置 */
+            body {
+                margin: 0;
+                font-family: "微软雅黑", "Helvetica", "Arial", "sans-serif";
+                font-size: 12px;
+                line-height: 1.5;
+                color: #333333;
+                background: #fff;
+            }
+
+            /* 标题重置 */
+            h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+                font-size: inherit;
+                font-weight: normal;
+            }
+
+            /* 列表重置 */
+            ul, ol {
+                margin: 0;
+                padding: 0;
+            }
+
+            dl, dd {
+                margin: 0;
+            }
+
+            li {
+                list-style-type: none;
+            }
+
+            /* 表单重置 */
+            label {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            textarea {
+                resize: none;
+            }
+
+            input[type=radio], input[type=checkbox], input[type=text], input[type=password], input[type=tel], input[type=number], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=month], input[type=week], input[type=color], textarea, select {
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+                border: 1px solid #9b9b9b;
+                outline: none;
+                color: inherit;
+                line-height: inherit;
+                font-size: inherit;
+                font-family: inherit;
+                vertical-align: middle;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            input[type=radio], input[type=checkbox] {
+                border: none;
+            }
+
+            input[type=submit], input[type=reset], input[type=file], input[type=button], button {
+                outline: none;
+                color: inherit;
+                line-height: inherit;
+                font-size: inherit;
+                font-family: inherit;
+                vertical-align: middle;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            /* 表格重置 */
+            table {
+                border-collapse: collapse;
+            }
+
+            td {
+                padding: 0;
+            }
+
+            /* 超链接重置 */
+            a {
+                color: inherit;
+                outline: none;
+                text-decoration: none;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            /* 段落重置 */
+            p {
+                margin: 0;
+            }
+
+            /* 画布重置 */
+            canvas {
+                vertical-align: middle;
+            }
+
+            /* 图片重置 */
+            img {
+                border: none;
+                vertical-align: middle;
+                max-width: 100%;
+            }
+        .ul2 li{ border: 1px solid #666; background: #ccc;}
+        .ul2 li:hover{background:orange; border: 1px solid #000;}
+        li{ font-size: 12px; color: #fff; margin-right: 5px; text-align: center; line-height: 30px; width: 30px; height: 30px;  list-style: none; float: left;}
+        .li1{background:green;}
+        .li2{background:orange;}
+        .li3{background:blue;}
+        dl{ line-height: 40px; height: 40px; clear:both;}
+        dt{ float:left;}
+        dd{ margin-top: 5px; margin-left: 5px; line-height:50px; display: inline-block; float:left;}
+        .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+        .clearfloat{zoom:1}
+        h2{ margin-bottom: 20px; margin-left: 10px; font-size: 24px;}
+        p{ margin-left: 10px; color: #fff; width: 150px; text-align: center; line-height: 50px; height: 50px; background: #f00; display: inline-block;}
+        .div1{ margin-left: 10px; width: 100px; height: 100px; border: 5px solid #000;}
+        .div2{ display: none; position: fixed; left: 50%; margin-left: -150px; margin-top: -100px; top: 50%; padding:10px 25px; width: 300px; height: 200px; border: 10px solid #f2f2f2;}
+        .div3 h3{ text-align: center; line-height: 30px; color: #fff; display: inline-block; width: 50px; height: 30px; background:blue;}
+        .div3{ margin:0 auto; text-align: center; margin-top: 5px;}
+        .div4{}
+        </style>
+        <script>
+            window.onload=function () {
+                var oBtn1=document.querySelector('.h2');
+                var oDiv2=document.querySelector('.div2');
+                var oDiv1=document.querySelector('.div1');
+                var oH31=document.querySelector('.h31');
+                var oH32=document.querySelector('.h32');
+                var oLi1=document.querySelector('.li1');
+                var oLi2=document.querySelector('.li2');
+                var oLi3=document.querySelector('.li3');
+                var oLi4=document.querySelector('.li4');
+                var oLi5=document.querySelector('.li5');
+                var oLi6=document.querySelector('.li6');
+                var oLi7=document.querySelector('.li7');
+                var oLi8=document.querySelector('.li8');
+                var oLi9=document.querySelector('.li9');
+                var oLi=document.querySelectorAll('li');
+                oLi.onmouseover=function () {
+                    oLi.style.background='orange';
+                }
+                oBtn1.onclick=function () {
+                    oDiv2.style.display='block';
+                }
+                oH32.onclick=function () {
+                    oDiv2.style.display='none';
+                }
+                oH31.onclick=function () {
+                    oDiv1.style.width='100px';
+                    oDiv1.style.height='100px';
+                    oDiv1.style.background='#fff';
+                }
+                oLi1.onclick=function () {
+                    oDiv1.style.background='#f00';
+                }
+                oLi2.onclick=function () {
+                    oDiv1.style.background='yellow';
+                }
+                oLi3.onclick=function () {
+                    oDiv1.style.background='blue';
+                }
+                oLi4.onclick=function () {
+                    oDiv1.style.width='200px';
+                }
+                oLi5.onclick=function () {
+                    oDiv1.style.width='300px';
+                }
+                oLi6.onclick=function () {
+                    oDiv1.style.width='400px';
+                }
+                oLi7.onclick=function () {
+                    oDiv1.style.height='200px';
+                }
+                oLi8.onclick=function () {
+                    oDiv1.style.height='300px';
+                }
+                oLi9.onclick=function () {
+                    oDiv1.style.height='400px';
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h2 class="h2">请为下面的DIV设置样式:<p>点击设置</p></h2>
+        <div class="div1"></div>
+        <div class="div4">
+            <div class="div2">
+                <dl class="clearfloat">
+                    <dt>请选择颜色背景:</dt>
+                    <dd>
+                        <ul class="clearfloat">
+                            <li class="li1">红</li>
+                            <li class="li2">黄</li>
+                            <li class="li3">蓝</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="clearfloat">
+                    <dt>请选择宽（px）:</dt>
+                    <dd>
+                        <ul class="clearfloat ul2">
+                            <li class="li4">200</li>
+                            <li class="li5">300</li>
+                            <li class="li6">400</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="clearfloat">
+                    <dt>请选择高（px）:</dt>
+                    <dd>
+                        <ul class="clearfloat ul2">
+                            <li class="li7">200</li>
+                            <li class="li8">300</li>
+                            <li class="li9">400</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <div class="div3">
+                    <h3 class="h31">恢复</h3>
+                    <h3 class="h32">确定</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

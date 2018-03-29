@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            ul {
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            body {
+                background: #333;
+            }
+
+            #pic {
+                background: url("../images/1.gif") no-repeat center #fff;
+                margin: 0 auto;
+                width: 400px;
+                height: 500px;
+                position: relative;
+            }
+
+            #pic ul {
+                width: 40px;
+                position: absolute;
+                top: 0;
+                right: -50px;
+            }
+
+            #pic li {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 4px;
+                background: #666;
+            }
+
+            #pic img {
+                width: 400px;
+                height: 500px;
+            }
+
+            #pic .active {
+                background: #fC3;
+            }
+
+            #pic span, #pic p {
+                background: #000;
+                left: 0;
+                position: absolute;
+                width: 400px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                color: #fff;
+            }
+
+            #pic p {
+                margin: 0;
+                bottom: 0;
+            }
+
+            #pic span {
+                top: 0;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var oDiv = document.getElementById('pic');
+                var oImg = oDiv.getElementsByTagName('img')[0];
+                var oSpan = oDiv.getElementsByTagName('span')[0];
+                var oP = oDiv.getElementsByTagName('p')[0];
+                var oUl = oDiv.getElementsByTagName('ul')[0];
+                var aLi = oDiv.getElementsByTagName('li');
+                var arrUrl = ['../images/1.jpg', '../images/2.jpg', '../images/3.jpg', '../images/4.jpg'];
+                var arrText = ['傻逼1', '傻逼2', '傻逼3', '傻逼4'];
+                var num = 0;
+                var oTop=null;
+                for (var i = 0; i < arrUrl.length; i++) {
+                    oUl.innerHTML += '<li></li>';
+                };
+                oTop=aLi[num];
+                //初始化
+                oImg.src = arrUrl[num];
+                oSpan.innerHTML = 1 + num + '/' + arrUrl.length;
+                oP.innerHTML = arrText[num];
+                aLi[num].className = 'active';
+
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].index = i;//索引值
+                    aLi[i].onclick = function () {
+                        oImg.src = arrUrl[this.index];
+                        oP.innerHTML = arrText[this.index];
+                        oSpan.innerHTML = 1 + this.index + '/' + arrText.length;
+
+
+                        /*
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        */
+                        //思路一：全部清空，当前添加
+                        /*
+                        for (var i = 0; i < aLi.length; i++) {
+                          aLi[i].className = '';
+                        }
+
+                        this.className = 'active';
+                        */
+                        //思路二：清空上一个，当前添加
+                        oTop.className='';
+                        oTop=this;
+                        this.className='active';
+                    };
+                };
+
+            };
+        </script>
+    </head>
+    <body>
+        <div id="pic">
+            <img src="" alt=""/>
+            <span>数量正在加载.....</span>
+            <p>文字说明正在加载中.....</p>
+            <ul>
+            </ul>
+        </div>
+    </body>
+</html>

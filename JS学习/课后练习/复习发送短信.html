@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .hq {
+                height: 410px;
+                overflow: auto;
+            }
+
+            .fr {
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+
+            .fr img {
+                margin-right: 5px;
+                margin-left: 5px;
+                float: right;
+            }
+
+            .fr p {
+                background: #ffCC33;
+                max-width: 200px;
+                margin: 0;
+                line-height: 28px;
+                float: right;
+            }
+
+            .clearfix:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .fl {
+                margin-bottom: 5px;
+                margin-top: 3px;
+            }
+
+            .fl img {
+                margin-right: 5px;
+                margin-left: 5px;
+                float: left;
+            }
+
+            .fl p {
+                background: #66FFFF;
+                max-width: 200px;
+                margin: 0;
+                line-height: 28px;
+                float: left;
+            }
+
+            .fs {
+                padding-top: 5px;
+                width: 100%;
+                border-top: 1px solid #ccc;
+                position: absolute;
+                left: 0;
+                bottom: 10px;
+            }
+
+            .img {
+                margin-left: 10px;
+                vertical-align: middle;
+            }
+
+            .text {
+                vertical-align: middle;
+            }
+
+            .btn {
+                vertical-align: middle;
+                background: none;
+                border: none;
+            }
+
+            .cont {
+                margin: 0 auto;
+                border-radius: 5px;
+                width: 300px;
+                height: 500px;
+                border: 5px solid #66FFFF;
+            }
+
+            .content {
+                position: relative;
+                margin: 15px auto 0;
+                width: 260px;
+                height: 460px;
+                border: 5px solid #cccccc;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var img = document.querySelector('.img');
+                var text = document.querySelector('.text');
+                var btn = document.querySelector('.btn');
+                var hq = document.querySelector('.hq');
+                var onff = true;
+
+                img.onclick = function () {
+                    if (onff) {
+                        img.src = '../images/k.png';
+                    } else {
+                        img.src = '../images/l.png';
+                    }
+                    onff = !onff;
+                };
+
+                btn.onclick = function () {
+
+                    if (text.value.trim() == '') {
+                        alert('请输入东西傻逼');
+                    } else {
+                        if (onff) {
+                            hq.innerHTML ='<div class="fl clearfix"><img src="../images/l.png"/><p>' + text.value + '</p></div>' + hq.innerHTML;
+                        }
+                        else {
+                            hq.innerHTML ='<div class="fr clearfix"><img src="../images/k.png"/><p>' + text.value + '</p></div>' + hq.innerHTML;
+                        }
+                        text.value = '';
+                    }
+                };
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <div class="content">
+                <div class="hq">
+                    <!--
+                    <div class="fl clearfix">
+                        <img src="../images/l.png"/>
+                        <p>大家好我是周杰伦到我的演唱会</p>
+                    </div>
+                    <div class="fr clearfix">
+                        <img src="../images/k.png"/>
+                        <p>大家好我是周杰伦到我的演唱会</p>
+                    </div>
+                    -->
+                </div>
+                <div class="fs">
+                    <img class="img" src="../images/l.png"/>
+                    <input class="text" type="text" value="">
+                    <input class="btn" type="button" value="发送">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

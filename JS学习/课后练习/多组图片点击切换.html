@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+
+            .clearfix:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            .prev,.next{ position: absolute; top: 20px; width: 230px; height: 360px;}
+            .l,.r{ position: absolute; top: 20px; width: 130px; height: 360px;}
+            .l{ left: 20px;}
+            .r{ right: 20px;}
+            .prev{ left: 20px;}
+            .next{ right: 20px;}
+            .btn{ margin-top: 20px; margin-bottom: 20px;}
+            .content{ width: 1000px; margin: 0 auto;}
+            .cont{ position: relative; float: left; background: #66FFFF; width:500px; height: 460px;}
+            .cont img{ margin-left: 20px; margin-top: 20px; width: 460px; height:360px;}
+            .cont p,.cont2 p{ margin: 0; text-align: center;}
+            .cont span,.cont2 span{ margin-left: 20px;}
+            .cont2{ position: relative; margin-left: 50px; float: left; width: 300px; height:460px; background: #66FFFF; }
+            .cont2 img{ margin-left: 20px; margin-top: 20px; width: 260px; height: 360px;}
+        </style>
+        <script>
+            window.onload=function () {
+                var btn1=document.querySelector('.btn1');
+                var btn2=document.querySelector('.btn2');
+                var prev=document.querySelector('.prev');
+                var next=document.querySelector('.next');
+                var l=document.querySelector('.l');
+                var r=document.querySelector('.r');
+                var img=document.querySelector('.img');
+                var p=document.querySelector('.p');
+                var span=document.querySelector('.span');
+                var im=document.querySelector('.im');
+                var ip=document.querySelector('.ip');
+                var is=document.querySelector('.is');
+                var num=0;
+                var nun=0
+                var arrurl=['../images/1.jpg','../images/2.jpg','../images/3.jpg','../images/4.jpg','../images/5.jpg'];
+                var arrtext=['第一组 第一张','第一组 第二张','第一组 第三张','第一组 第四张','第一组 第五张'];
+
+                var arrur=['../images/6.jpg','../images/7.jpg','../images/8.jpg','../images/9.jpg'];
+                var arrte=['第二组 第一张','第二组 第二张','第二组 第三张','第二组 第四张'];
+          
+
+                btn2.onclick=function () {
+                    num++;
+                    //alert('1');
+                    if(num==arrurl.length){
+                        num=0;
+                    };
+                    tab();
+
+                    nun++;
+                    //alert('1');
+                    if(nun==arrur.length){
+                        nun=0;
+                    };
+                    tb();
+                    
+                };
+                btn1.onclick=function () {
+                    num--;
+                    //alert('1');
+                    if(num<0){
+                        num=arrurl.length-1;
+                    };
+                    tab();
+
+                    nun--;
+                    //alert('1');
+                    if(nun<0){
+                        nun=arrur.length-1;
+                    };
+                    tb();
+                };
+
+                next.onclick=function () {
+                    num++;
+                    //alert('1');
+                    if(num==arrurl.length){
+                        num=0;
+                    };
+                    tab();
+                };
+                prev.onclick=function () {
+                    num--;
+                    //alert('1');
+                    if(num<0){
+                        num=arrurl.length-1;
+                    };
+                    tab();
+                };
+                function tab() {
+                    img.src=arrurl[num];
+                    p.innerHTML=arrtext[num];
+                    span.innerHTML=num+1+'/'+arrurl.length;
+                }
+
+                r.onclick=function () {
+                    nun++;
+                    //alert('1');
+                    if(nun==arrur.length){
+                        nun=0;
+                    };
+                    tb();
+                };
+                l.onclick=function () {
+                    nun--;
+                    //alert('1');
+                    if(nun<0){
+                        nun=arrur.length-1;
+                    };
+                    tb();
+                };
+
+                function tb() {
+                    im.src=arrur[nun];
+                    ip.innerHTML=arrte[nun];
+                    is.innerHTML=nun+1+'/'+arrur.length;
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="content clearfix">
+            <div class="btn">
+                <input class="btn1" type="button" value="上一组">
+                <input class="btn2" type="button" value="下一组">
+            </div>
+            <div class="cont">
+                <div class="prev"></div>
+                <div class="next"></div>
+                <img class="img" src="../images/1.jpg">
+                <p class="p">第一组 第一张</p>
+                <span class="span">1/5</span>
+            </div>
+            <div class="cont2">
+                <div class="l"></div>
+                <div class="r"></div>
+                <img class="im" src="../images/6.jpg"/>
+                <p class="ip">第二组 第一张</p>
+                <span class="is">1/4</span>
+            </div>
+        </div>
+    </body>
+</html>

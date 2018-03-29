@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cont {
+                position: relative;
+                width: 500px;
+                height: 500px;
+                border: 1px solid #000;
+            }
+
+            .cont div {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                line-height: 100px;
+                background: #66FFFF;
+                font-size: 24px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var cont = document.querySelector('.cont');
+                var btn = document.querySelector('.btn');
+                var str = '';
+                var l = 0;
+                var t = 0;
+                var num=0;
+                btn.onclick = function () {
+                    str='';
+                    if(num==0){
+                    for (var i = 0; i < 5; i++) {
+                            l = i * 100;
+                            if(i<=2){
+                                t=i*100;
+                            }else {
+                                t=400-i*100;
+                            }
+                            str += '<div style="left:'+l+'px; top:'+t+'px;">' + i + '</div>';
+                        };
+                    };
+                    if(num==1){
+                        for (var i = 0; i < 5; i++) {
+                            t = i * 100;
+                            if(i<=2){
+                                l=400-i*100;
+                            }else {
+                                l=i*100;
+                            }
+                            str += '<div style="left:'+l+'px; top:'+t+'px;">' + i + '</div>';
+                        };
+                    };
+                    if(num==2){
+                        for (var i = 0; i < 5; i++) {
+                            l = i * 100;
+                            if(i<=2){
+                                t=400-i*100;
+                            }else {
+                                t=i*100;
+                            }
+                            str += '<div style="left:'+l+'px; top:'+t+'px;">' + i + '</div>';
+                        };
+                    };
+                    if(num==3){
+                        for (var i = 0; i < 5; i++) {
+                            t = i * 100;
+                            if(i<=2){
+                                l=i*100;
+                            }else {
+                                l=400-i*100;
+                            }
+                            str += '<div style="left:'+l+'px; top:'+t+'px;">' + i + '</div>';
+                        };
+                    };
+                    num++;
+                    if(num==4){
+                        num=0;
+                    }
+                    cont.innerHTML = str;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <input class="btn" type="button" value="点击">
+        <div class="cont">
+        </div>
+    </body>
+</html>

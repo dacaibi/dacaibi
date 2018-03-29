@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+                var oBtn=document.getElementById('btn');
+                var oUl=document.getElementById('list');
+                var arr=[
+                    '刘鹤应约与美财长通话：中方有实力捍卫国家利益',
+                    '双方同意保持沟通',
+                    '中国中车总经理：高铁出口不受中美贸易摩擦影响',
+                    '教育部发文！贫困家庭考生，同等条件下优先录取',
+                    '生态环境部首次通报两起督办案 两家公司被查处'
+                ];
+                var onOff=true;
+
+                oBtn.onclick=function () {
+                    //oBtn.disabled='true';
+                    //oBtn.style.display='none';
+                    //oUl.innerHTML='';
+
+                    if(onOff){
+                        for ( var i=0; i<arr.length; i++){
+                            oUl.innerHTML+='<li>'+arr[i]+'</li>';
+                        };
+                        onOff=false;
+                    };
+                };
+
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <input id="btn" type="button" value="自动生成五条新闻">
+        <ul id="list">
+
+        </ul>
+    </body>
+</html>

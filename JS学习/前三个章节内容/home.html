@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <script>
+            window.onload=function (){
+                var li=document.getElementById('lis');
+                var ul=document.getElementById('ul1');
+                var a=document.getElementById('link');
+                li.onmouseover=function() {
+                    ul.style.display='block';
+                    a.style.background='yellow';
+                };
+                li.onmouseout=function() {
+                    ul.style.display='none';
+                    a.style.background='#ccc';
+                };
+            }
+        </script>
+        <style>
+            .lis{ position: relative; background: #ccc; list-style: none; width: 80px; height: 30px; border: 1px solid #000;}
+            .lis a{ color: #f00; display: block; line-height: 30px; text-decoration: none; text-align: center;}
+            ul ul{ display: none; position: absolute; top: 30px; left: -1px; padding: 0; margin: 0; width: 140px; border: 1px solid #000;}
+            ul ul li{ list-style: none; text-align: center; line-height: 30px;}
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li id="lis" class="lis">
+                <a id="link" href="javascript:;">微博</a>
+                <ul id="ul1">
+                    <li>私信</li>
+                    <li>评论</li>
+                    <li>@我</li>
+                </ul>
+            </li>
+        </ul>
+        <script>
+            //abc();
+        </script>
+    </body>
+</html>
