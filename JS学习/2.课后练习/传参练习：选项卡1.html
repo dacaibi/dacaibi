@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .btn {
+                border: none;
+                background: #ccc;
+            }
+
+            .btn.on {
+                border: 2px solid #66FFFF;
+            }
+
+            .yi {
+                display: none;
+            }
+
+            .yi.on {
+                display: block;
+            }
+
+            .yi div.on {
+                height: 60px;
+                line-height: 60px;
+                font-size: 36px;
+                background: #ffff99;
+            }
+
+            .cont {
+                font-size: 24px;
+                text-indent: 36px;
+                width: 300px;
+                background: #ccc;
+                margin: 0 auto;
+            }
+
+            .yi div {
+                height: 30px;
+                line-height: 30px;
+                background: #66FFFF;
+                border-bottom: 1px dashed #ffCC33;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var btn = document.querySelectorAll('.btn');
+                var yi = document.querySelectorAll('.yi');
+
+
+                function highLight(yi) {
+                    var div = yi.querySelectorAll('.yi div');
+                    for (var i = 0; i < div.length; i++) {
+                        div[i].onmouseover = function () {
+                            for (var i = 0; i < div.length; i++) {
+                                div[i].classList.remove('on');
+                            }
+                            this.classList.add('on');
+                        };
+                    }
+                }
+
+                for (var i = 0; i < yi.length; i++) {
+                    highLight(yi[i]);
+                }
+
+                function tab(btn, cut) {
+                    for (var i = 0; i < btn.length; i++) {
+                        btn[i].index = i;
+                        btn[i].addEventListener('click', function () {
+                            for (var i = 0; i < btn.length; i++) {
+                                btn[i].classList.remove('on');
+                                cut[i].classList.remove('on');
+                            }
+                            this.classList.add('on');
+                            cut[this.index].classList.add('on');
+                        })
+                    }
+                }
+
+                tab(btn, yi);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <div class="content">
+                <input class="btn on" type="button" value="一号按钮">
+                <input class="btn" type="button" value="二号按钮">
+                <input class="btn" type="button" value="三号按钮">
+                <div class="yi on">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                </div>
+                <div class="yi">
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                    <div>21</div>
+                    <div>22</div>
+                    <div>23</div>
+                    <div>24</div>
+                    <div>25</div>
+                    <div>26</div>
+                    <div>27</div>
+                    <div>28</div>
+                    <div>29</div>
+                    <div>30</div>
+                </div>
+                <div class="yi">
+                    <div>31</div>
+                    <div>32</div>
+                    <div>33</div>
+                    <div>34</div>
+                    <div>35</div>
+                    <div>36</div>
+                    <div>37</div>
+                    <div>38</div>
+                    <div>39</div>
+                    <div>40</div>
+                    <div>41</div>
+                    <div>42</div>
+                    <div>43</div>
+                    <div>44</div>
+                    <div>45</div>
+                </div>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="content">
+                <input class="hd on" type="button" value="一号按钮">
+                <input class="hd" type="button" value="二号按钮">
+                <input class="hd" type="button" value="三号按钮">
+                <div class="bd on">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                </div>
+                <div class="bd">
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                    <div>21</div>
+                    <div>22</div>
+                    <div>23</div>
+                    <div>24</div>
+                    <div>25</div>
+                    <div>26</div>
+                    <div>27</div>
+                    <div>28</div>
+                    <div>29</div>
+                    <div>30</div>
+                </div>
+                <div class="bd">
+                    <div>31</div>
+                    <div>32</div>
+                    <div>33</div>
+                    <div>34</div>
+                    <div>35</div>
+                    <div>36</div>
+                    <div>37</div>
+                    <div>38</div>
+                    <div>39</div>
+                    <div>40</div>
+                    <div>41</div>
+                    <div>42</div>
+                    <div>43</div>
+                    <div>44</div>
+                    <div>45</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

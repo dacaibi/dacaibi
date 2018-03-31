@@ -10,6 +10,66 @@
             2.把核心的主程序实现，用一个函数包起来
             3.把每组里不同值找不出来，通过传参实现
             */
+            window.onload = function () {
+                var cont = document.querySelector('.cont');
+                var div = cont.getElementsByTagName('div');
+                var h3 = document.querySelector('#h3');
+                var h4 = document.querySelector('#h4');
+                var I = document.querySelector('#sy');
+                var str = document.querySelectorAll('strong');
+                var sp = document.querySelectorAll('span');
+                var ems = document.querySelectorAll('em');
+
+
+                function tab() {
+                    var b = 0;
+                    var c = 0;
+                    var t =0;
+                    for (var i = 0; i < str.length; i++) {
+                        b += parseFloat(str[i].innerHTML);
+                        c += parseFloat(sp[i].innerHTML);
+                         if (parseFloat(str[i].innerHTML) != 0) {
+                             if (parseFloat(ems[i].innerHTML) > t) {
+                                 t = parseFloat(ems[i].innerHTML);
+                             }
+                         }
+                    }
+                    I.innerHTML = t;
+                    h3.innerHTML = b;
+                    h4.innerHTML = c;
+                }
+
+
+                for (var i = 0; i < div.length; i++) {
+                    fn1(div[i]);
+                }
+                function fn1(div) {
+                    var btn = div.getElementsByTagName('input');
+                    var strong = div.getElementsByTagName('strong')[0];
+                    var em = div.getElementsByTagName('em')[0];
+                    var span = div.querySelector('span');
+                    var n1 = Number(strong.innerHTML);
+                    var n2 = parseFloat(em.innerHTML);
+
+                    btn[0].onclick = function () {
+                        n1--;
+                        if (n1 < 0) {
+                            n1 = 0;
+                        }
+                        strong.innerHTML = n1;
+                        span.innerHTML = n1 * n2 + '元';
+                        tab();
+                    };
+                    btn[1].onclick = function () {
+                        n1++;
+                        strong.innerHTML = n1;
+                        span.innerHTML = n1 * n2 + '元';
+                        tab();
+                    }
+
+                }
+            }
+
 
         </script>
     </head>
@@ -20,6 +80,22 @@
                 <strong>0</strong>
                 <input type="button" value="+">
                 单价:<em>12.5元</em>
+                小计:<span>0元</span>
+            </div>
+
+            <div>
+                <input type="button" value="-">
+                <strong>0</strong>
+                <input type="button" value="+">
+                单价:<em>10元</em>
+                小计:<span>0元</span>
+            </div>
+
+            <div>
+                <input type="button" value="-">
+                <strong>0</strong>
+                <input type="button" value="+">
+                单价:<em>8.5元</em>
                 小计:<span>0元</span>
             </div>
 
@@ -39,5 +115,6 @@
                 小计:<span>0元</span>
             </div>
         </div>
+        <p>商品合计共:<i id="h3"> 0 </i>件,共花费了:<i id="h4"> 0 元</i><br/>其中最贵的商品单价是:<i id="sy">0</i>元</p>
     </body>
 </html>

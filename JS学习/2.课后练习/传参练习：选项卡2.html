@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+
+
+            .clearfix:after {
+                content: '';
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+
+            .cont {
+                border: 5px solid #cccccc;
+                width: 1000px;
+                height: 500px;
+                margin: 0 auto;
+            }
+
+            .bd {
+                float: left;
+            }
+
+            .bd .bd0 {
+                width: 800px;
+                height: 500px;
+                display: none;
+            }
+
+            .bd div.on {
+                display: block;
+            }
+
+            .bd img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .hd {
+                float: left;
+            }
+
+            .hd div {
+                width: 200px;
+                height: 120px;
+                background: #66FFFF;
+                font-size: 36px;
+                line-height: 120px;
+                text-align: center;
+                margin-bottom: 7px;
+            }
+
+            .hd div.on {
+                background: #ffff99;
+                color: red;
+            }
+
+            .cont1 {
+                width: 800px;
+                position: relative;
+            }
+
+            .bd1 div {
+                display: none;
+                width: 800px;
+                height: 500px;
+            }
+
+            .bd1 div.on {
+                display: block;
+            }
+
+            .bd1 div img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .hd1 {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 800px;
+            }
+
+            .hd1 div {
+                font-size: 24px;
+                color: #fff;
+                line-height: 50px;
+                text-align: center;
+                opacity: 0.6;
+                width: 266px;
+                float: left;
+                background: #000;
+                height: 50px;
+            }
+
+            .hd1 div.on {
+                opacity: 0.8;
+                background: #ffCC33;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var cont = document.querySelector('.cont');
+                var btn = cont.querySelectorAll('.hd>div');
+                var cut = cont.querySelectorAll('.bd>div');
+
+                function tab(btn, cut) {
+                    for (var i = 0; i < btn.length; i++) {
+                        btn[i].index = i;
+                        btn[i].onclick = function () {
+                            for (var i = 0; i < btn.length; i++) {
+                                btn[i].classList.remove('on');
+                                cut[i].classList.remove('on');
+                            }
+                            this.classList.add('on');
+                            cut[this.index].classList.add('on');
+                        }
+                    }
+                }
+
+                tab(btn, cut);
+                for (var i = 0; i < cut.length; i++) {
+                    var btnI = cut[i].querySelectorAll('.hd1>div');
+                    var cutI = cut[i].querySelectorAll('.bd1>div');
+                    tab(btnI, cutI);
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cont clearfix">
+            <div class="hd">
+                <div class="on">一号按钮</div>
+                <div>二号按钮</div>
+                <div>三号按钮</div>
+                <div>四号按钮</div>
+            </div>
+            <div class="bd">
+                <div class="on bd0">
+                    <div class="cont1">
+                        <div class="hd1">
+                            <div class="on">1</div>
+                            <div>2</div>
+                            <div>3</div>
+                        </div>
+                        <div class="bd1">
+                            <div class="on"><img src="../images/5.jpg"/></div>
+                            <div><img src="../images/6.jpg"/></div>
+                            <div><img src="../images/7.jpg"/></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd0">
+                    <div class="cont1">
+                        <div class="hd1">
+                            <div class="on">1</div>
+                            <div>2</div>
+                            <div>3</div>
+                        </div>
+                        <div class="bd1">
+                            <div class="on"><img src="../images/5.jpg"/></div>
+                            <div><img src="../images/6.jpg"/></div>
+                            <div><img src="../images/7.jpg"/></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd0">
+                    <div class="cont1">
+                        <div class="hd1">
+                            <div class="on">1</div>
+                            <div>2</div>
+                            <div>3</div>
+                        </div>
+                        <div class="bd1">
+                            <div class="on"><img src="../images/5.jpg"/></div>
+                            <div><img src="../images/6.jpg"/></div>
+                            <div><img src="../images/7.jpg"/></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd0">
+                    <div class="cont1">
+                        <div class="hd1">
+                            <div class="on">1</div>
+                            <div>2</div>
+                            <div>3</div>
+                        </div>
+                        <div class="bd1">
+                            <div class="on"><img src="../images/5.jpg"/></div>
+                            <div><img src="../images/6.jpg"/></div>
+                            <div><img src="../images/7.jpg"/></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

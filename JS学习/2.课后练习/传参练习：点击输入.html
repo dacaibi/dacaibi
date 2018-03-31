@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cont {
+                text-indent: 24px;
+                width: 500px;
+                background: #ccc;
+                margin: 0 auto;
+            }
+
+            .cont h2 {
+                margin: 0;
+                background: #66FFFF;
+            }
+
+            .content {
+                position: relative;
+                border-bottom: 1px solid #66FFFF;
+                height: 50px;
+                line-height: 50px;
+                background: #ffff99;
+            }
+
+            .content img {
+                margin-top: 10px;
+                margin-left: 10px;
+                float: left;
+            }
+
+            .content .wb {
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .content .xg {
+                float: left;
+            }
+
+            .content .text {
+                height: 30px;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var content = document.querySelectorAll('.content');
+
+                for (var i = 0; i < content.length; i++) {
+                    tab(content[i]);
+                }
+
+                function tab(content) {
+                    var img = content.querySelector('.img');
+                    var wb = content.querySelector('.wb');
+                    var btn1 = content.querySelector('.btn1');
+                    var btn2 = content.querySelector('.btn2');
+                    var text = content.querySelector('.text');
+                    var xg = content.querySelector('.xg');
+                    img.onclick = function () {
+                        wb.style.display = 'block';
+                    };
+                    btn1.onclick = function () {
+                        if (text.value.trim() == '') {
+                            alert('请输入内容')
+                        } else {
+                            xg.innerHTML = '<div>' + text.value + '</div>';
+                            wb.style.display = 'none';
+                            text.value='';
+                        }
+                    };
+                    btn2.onclick = function () {
+                        wb.style.display = 'none';
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <h2>分类</h2>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+            <div class="content">
+                <div class="xg">请点击修改</div>
+                <img class="img" src="../images/k.png"/>
+                <div class="wb">
+                    <input class="text" type="text" value="请点击修改">
+                    <input class="btn1" type="button" value="保存">
+                    <input class="btn2" type="button" value="取消">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

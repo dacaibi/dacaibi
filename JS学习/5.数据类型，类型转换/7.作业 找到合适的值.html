@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            var arr = [
+                '100px',
+                'abc' - 6,
+                [],
+                -98765,
+                34,
+                -2,
+                0,
+                '300',
+                ,
+                function () {
+                    alert(1);
+                },
+                null,
+                document,
+                [],
+                true,
+                '200px' - 30,
+                '23.45元',
+                5,
+                Number('abc'),
+                function () {
+                    alert(3);
+                }
+            ];
+            var obj = {
+                a: [],
+                b: [],
+                c: [],
+                d: []
+            };
+            var min = 0;
+            var result = null;
+            for (var i = 0; i < arr.length; i++) {
+                var v = arr[i];
+                if (isNaN(v) !== true && typeof v === 'number') {
+                    obj.a.push(v);
+                }
+                if (parseFloat(v) || parseFloat(v) === 0) {
+                    var val = parseFloat(v);
+                    if (val > min) {
+                        min = val;
+                        result = val;
+                    }
+                    obj.b.push(v);
+                }
+                if (v !== v) {
+                    obj.d.push({
+                        value: v,
+                        index: i
+                    });
+                }
+            }
+            obj.c.push(result);
+            console.log(obj);
+            /*
+            1.找到arr里所有的数字：-987654 34 -2 0 5
+            2.找到可以转成数字的：100px -987654 34 -2 0 300 23.45元 5
+            3.把转成数字以后，最大的值判断出来：300
+            4.把NaN所在的位置找出来：1 14 17
+            */
+            //找出所有的字符串：typeof'abc'==='string'
+            // fn1();
+            //
+            // function fn1() {
+            //     for (var i = 0; i < arr.length; i++) {
+            //         if(typeof arr[i]==='string'){
+            //             alert(arr[i]);
+            //         }
+            //     }
+            // }
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
