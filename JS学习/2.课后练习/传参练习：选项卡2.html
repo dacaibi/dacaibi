@@ -80,6 +80,7 @@
             }
 
             .hd1 {
+                display: flex;
                 position: absolute;
                 left: 0;
                 bottom: 0;
@@ -87,6 +88,7 @@
             }
 
             .hd1 div {
+                flex: 1;
                 font-size: 24px;
                 color: #fff;
                 line-height: 50px;
@@ -109,6 +111,14 @@
                 var btn = cont.querySelectorAll('.hd>div');
                 var cut = cont.querySelectorAll('.bd>div');
 
+
+
+                tab(btn, cut);
+                for (var i = 0; i < cut.length; i++) {
+                    var btnI = cut[i].querySelectorAll('.hd1>div');
+                    var cutI = cut[i].querySelectorAll('.bd1>div');
+                    tab(btnI, cutI);
+                }
                 function tab(btn, cut) {
                     for (var i = 0; i < btn.length; i++) {
                         btn[i].index = i;
@@ -121,13 +131,6 @@
                             cut[this.index].classList.add('on');
                         }
                     }
-                }
-
-                tab(btn, cut);
-                for (var i = 0; i < cut.length; i++) {
-                    var btnI = cut[i].querySelectorAll('.hd1>div');
-                    var cutI = cut[i].querySelectorAll('.bd1>div');
-                    tab(btnI, cutI);
                 }
 
             }
@@ -162,11 +165,13 @@
                             <div class="on">1</div>
                             <div>2</div>
                             <div>3</div>
+                            <div>4</div>
                         </div>
                         <div class="bd1">
                             <div class="on"><img src="../images/5.jpg"/></div>
                             <div><img src="../images/6.jpg"/></div>
                             <div><img src="../images/7.jpg"/></div>
+                            <div><img src="../images/8.jpg"/></div>
                         </div>
                     </div>
                 </div>
@@ -176,11 +181,15 @@
                             <div class="on">1</div>
                             <div>2</div>
                             <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
                         </div>
                         <div class="bd1">
                             <div class="on"><img src="../images/5.jpg"/></div>
                             <div><img src="../images/6.jpg"/></div>
                             <div><img src="../images/7.jpg"/></div>
+                            <div><img src="../images/8.jpg"/></div>
+                            <div><img src="../images/9.jpg"/></div>
                         </div>
                     </div>
                 </div>
@@ -190,11 +199,17 @@
                             <div class="on">1</div>
                             <div>2</div>
                             <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
                         </div>
                         <div class="bd1">
                             <div class="on"><img src="../images/5.jpg"/></div>
                             <div><img src="../images/6.jpg"/></div>
                             <div><img src="../images/7.jpg"/></div>
+                            <div><img src="../images/8.jpg"/></div>
+                            <div><img src="../images/9.jpg"/></div>
+                            <div><img src="../images/2.jpg"/></div>
                         </div>
                     </div>
                 </div>

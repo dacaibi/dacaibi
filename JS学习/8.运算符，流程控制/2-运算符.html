@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div {
+                margin-bottom: 3px;
+                height: 30px;
+                width: 500px;
+            }
+        </style>
+        <script>
+
+            // var i=0;
+            // i++;
+            // i%=5;
+            //var s=65;//秒
+            //alert(Math.floor(s/60)+'分'+s%60+'秒');
+
+            window.onload = function () {
+                var div = document.querySelectorAll('.div');
+                var arr = ['red', 'yellow', 'blue'];
+                var str = '';
+
+                for (var i = 0; i < div.length; i++) {
+                    div[i].index = i;
+                    div[i].style.background = arr[i % arr.length];
+
+                    div[i].onclick = function () {
+                        for (var i=0; i<div.length;i++){
+                            div[i].style.background = arr[i % arr.length];
+                            div[i].onOff=false;
+                        }
+                        this.style.background = '#000';
+                        this.onOff = true;
+                    };
+
+                    div[i].onmouseover = function () {
+                        str = this.style.background; //先存颜色
+                        this.style.background = 'gray';
+                        if (this.onOff === true) {
+                            this.style.background = '#000';
+                        }
+                    };
+
+                    div[i].onmouseout = function () {
+                        this.style.background = str;
+                        if (this.onOff === true) {
+                            this.style.background = '#000';
+                        }
+                    }
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+        </div>
+    </body>
+</html>

@@ -9,6 +9,13 @@
             域：空间，范围，区域
             作用：读，写
 
+            script 全局变量 全局函数
+                自上而下
+
+            函数
+
+            {}
+
             浏览器：
             “JS解析器”
             1：“找一些东西”：var function 参数
@@ -19,11 +26,50 @@
 
                 JS的预解析
 
-            2.逐行解析代码：
+                遇到重名只留下 一个
+                变量函数重名留下函数
 
+                函数
+                有里到外
+
+            2.逐行解析代码：
+                表达式：=+-/*%++--！参数·····
 
 
             */
+            //
+            // var a=1;
+            // function fn1() {
+            //     alert(a); //undefined
+            //     var a=2;
+            // }
+            // fn1();
+            // alert(a);     //1
+            //
+            // var a=1;
+            // function fn1() {
+            //     alert(a);  //1
+            //     a=2;
+            // }
+            // fn1();
+            // alert(a);  //2
+            //
+            // var a=1;
+            // function fn1(a) {
+            //     alert(a);   //undefined
+            //     a=2;
+            // }
+            // fn1();
+            // alert(a);   //1
+            //
+            // var a=1;
+            // function fn1(a) {
+            //     alert(a);   //1
+            //     a=2;
+            // }
+            // fn1(a);
+            // alert(a);   //1
+
         </script>
     </head>
     <body>
