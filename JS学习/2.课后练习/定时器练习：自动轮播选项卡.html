@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cont{ padding-left: 15px; padding-top: 15px; width: 500px; height: 230px; background: #ccc; margin: 0 auto;}
+            .hd{ margin-bottom: 5px;}
+            .hd div{ display: inline-block;}
+            .hd div.on{ border: 5px solid #FF33cc;}
+            .bd1{ float: left;}
+            .hd1{ float: left;}
+            .hd1 div{ width: 285px; height: 60px; line-height: 60px; font-size: 24px; text-align: center;}
+            .hd1 div.on{ background: #66FFFF;}
+            .bd1 div{ display: none;}
+            .bd1 div.on{ display: block;}
+            .bd1 div img{ width: 200px; height: 180px;}
+            .bd_div{ display: none;}
+            .bd_div.on{ display: block;}
+        </style>
+        <script>
+            window.onload=function () {
+                var cont=document.querySelector('.cont');
+                var btn=cont.querySelectorAll('.hd>div');
+                var cut=cont.querySelectorAll('.bd>div');
+                tab(btn, cut);
+                for (var i = 0; i < cut.length; i++) {
+                    var btnI = cut[i].querySelectorAll('.hd1>div');
+                    var cutI = cut[i].querySelectorAll('.bd1>div');
+                    tab(btnI, cutI);
+                };
+                function tab(btn, cut) {
+                    for (var i=0; i<btn.length;i++){
+                        btn[i].index=i;
+                        btn[i].onmouseover=function () {
+                            for (var i=0; i<btn.length;i++){
+                                btn[i].classList.remove('on');
+                                cut[i].classList.remove('on');
+                            };
+                            this.classList.add('on');
+                            cut[this.index].classList.add('on');
+                        };
+                    };
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <div class="hd">
+                <div class="on">专题</div>
+                <div>视频</div>
+            </div>
+            <div class="bd">
+                <div class="bd_div on">
+                    <div class="cont2">
+                        <div class="bd1">
+                            <div class="on"><img src="../images/2.jpg"/></div>
+                            <div><img src="../images/3.jpg"/></div>
+                            <div><img src="../images/4.jpg"/></div>
+                        </div>
+                        <div class="hd1">
+                            <div class="on">轮播一号</div>
+                            <div>轮播二号</div>
+                            <div>轮播三号</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd_div">
+                    <div class="cont2">
+                        <div class="bd1">
+                            <div class="on"><img src="../images/5.jpg"/></div>
+                            <div><img src="../images/6.jpg"/></div>
+                            <div><img src="../images/7.jpg"/></div>
+                        </div>
+                        <div class="hd1">
+                            <div class="on">轮播四号</div>
+                            <div>轮播五号</div>
+                            <div>轮播六号</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

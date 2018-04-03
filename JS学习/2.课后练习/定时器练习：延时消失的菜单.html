@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div1{ position: absolute; left: 0;top: 38px;}
+            .div2{ position: absolute; left: 50px;top: 38px;}
+            .div3{ position: absolute; left: 100px;top: 38px;}
+            .div4{ position: absolute; left: 150px;top: 38px;}
+            .hz{ position: relative; width: 500px; margin: 0 auto;}
+            .cont{ margin-bottom: 15px; padding-left: 10px; width: 500px; height:30px; line-height: 30px; background: #ccc;}
+            .cont div{ width: 50px; text-align: center; display: inline-block;}
+            .cont div.on{ background: #66FFFF; border-radius: 10px;}
+            .content div{ display: none; padding-right: 12px; margin-bottom: 5px; border-radius: 5px; text-indent: 30px; font-size: 15px; line-height: 30px; background: #cccccc;}
+            .content div.on{ display: block;}
+        </style>
+        <script>
+            window.onload=function () {
+                var div=document.querySelectorAll('.cont div');
+                var div2=document.querySelectorAll('.content div');
+                var timer=null;
+                for (var i=0; i<div2.length;i++){
+                    div2[i].onmouseover=function () {
+                        clearInterval(timer);
+                            this.classList.add('on');
+                    };
+                    div2[i].onmouseout=function () {
+                        var SB=this;
+                        timer=setTimeout(function () {
+                                SB.classList.remove('on')
+                        },1000);
+                    }
+                };
+                for (var i=0; i<div.length;i++){
+                    div[i].index=i;
+                    div[i].onmouseover=function () {
+                        clearTimeout(timer);
+                        for(var i=0; i<div2.length;i++){
+                            div[i].classList.remove('on');
+                            div2[i].classList.remove('on');
+                        }
+                        this.classList.add('on');
+                        div2[this.index].classList.add('on');
+                    };
+                    div[i].onmouseout=function () {
+                        timer=setTimeout(function () {
+                            for(var i=0; i<div2.length;i++){
+                                div[i].classList.remove('on');
+                                div2[i].classList.remove('on');
+                            }
+                        },1000);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="hz">
+            <div class="cont">
+                <div class="on">首页</div>
+                <div>关于</div>
+                <div>作品</div>
+                <div>博客</div>
+            </div>
+            <div class="content">
+                <div class="div1 on">首页首页首页首页首页首页首页</div>
+                <div class="div2">关于关于关于关于关于关于关于</div>
+                <div class="div3">作品作品作品作品作品作品作品</div>
+                <div class="div4">博客博客博客博客博客博客博客</div>
+            </div>
+        </div>
+    </body>
+</html>

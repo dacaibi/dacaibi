@@ -21,10 +21,9 @@
             window.onload = function () {
                 var div = document.querySelectorAll('.div');
                 var arr = ['red', 'yellow', 'blue'];
-                var str = '';
 
                 for (var i = 0; i < div.length; i++) {
-                    div[i].index = i;
+                    div[i].oldBackground = arr[i % arr.length];
                     div[i].style.background = arr[i % arr.length];
 
                     div[i].onclick = function () {
@@ -37,15 +36,11 @@
                     };
 
                     div[i].onmouseover = function () {
-                        str = this.style.background; //先存颜色
                         this.style.background = 'gray';
-                        if (this.onOff === true) {
-                            this.style.background = '#000';
-                        }
                     };
 
                     div[i].onmouseout = function () {
-                        this.style.background = str;
+                        this.style.background = this.oldBackground;
                         if (this.onOff === true) {
                             this.style.background = '#000';
                         }

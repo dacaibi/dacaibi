@@ -5,7 +5,7 @@
         <title>Title</title>
         <style>
             .cont {
-                border: 1px solid #ccc;
+                border: 1px solid #cccccc;
                 width: 280px;
                 margin: 0 auto;
             }
@@ -21,8 +21,10 @@
                 font-size: 18px;
                 text-indent: 12px;
                 height: 50px;
+                background: #66FFFF;
             }
 
+            .on{ background: #cccccc;}
             .qx {
                 font-size: 18px;
                 line-height: 50px;
@@ -31,16 +33,48 @@
         </style>
         <script>
             window.onload = function () {
+                var Inp = document.querySelectorAll('.inp');
                 var inp = document.querySelectorAll('.inp input');
                 var btn1 = document.querySelector('.btn1');
                 var btn2 = document.querySelector('.btn2');
+                var srr = ['#66FFFF', '#fff'];
 
-                btn1.onclick=function () {
-                    for(var i=0; i<inp.length;i++){
-                        if(inp[i].checked){
+                for (var i = 0; i < inp.length; i++){
+                    inp[i].onclick=function () {
+                        var isSelectAll = true; // 假如全选了
+                        for (var i = 0; i < inp.length; i++){
+                            if(inp[i].checked === false){ // 发现有一个没被选中
+                                isSelectAll = false; // 没全选
+                                break;
+                            }
                         }
+                        btn1.checked = isSelectAll;
                     }
                 }
+
+                    for (var i = 0; i < Inp.length; i++) {
+                        Inp[i].style.background = srr[i % 2];
+                        Inp[i].onmouseover = function () {
+                            for (var i = 0; i < Inp.length; i++) {
+                                Inp[i].style.background = srr[i % 2];
+                            }
+
+                            this.style.background = '#ccc';
+                        };
+                    }
+
+                btn1.onclick = function () {
+                    for (var i = 0; i < inp.length; i++) {
+                        inp[i].checked = true;
+                    }
+
+                };
+                // btn2.onclick = function () {
+                //     for (var i = 0; i < inp.length; i++) {
+                //         inp[i].checked = !inp[i].checked;
+                //     }
+                //     btn1.checked=false;
+                // };
             }
 
         </script>
@@ -66,8 +100,8 @@
                 <p>日落大道</p> 梁博
             </div>
             <div class="qx">
-                <input class="btn1" type="checkbox">全选
-                <input class="btn2" type="checkbox">反选
+                <input class="btn1" type="checkbox"><p>全选</p>
+                <!--<input class="btn2" type="checkbox">反选-->
             </div>
         </div>
     </body>
