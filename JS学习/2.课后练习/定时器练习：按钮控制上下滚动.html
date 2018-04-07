@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cont {
+                position: relative;
+                margin: 0 auto;
+                width: 250px;
+                height: 650px;
+                overflow: hidden;
+                border: 1px solid #ccc;
+            }
+
+            .btn1, .btn2 {
+                font-weight: bold;
+                left: 0;
+                position: absolute;
+                width: 100%;
+                background: #66FFFF;
+                font-size: 24px;
+                line-height: 36px;
+                text-align: center;
+            }
+
+            .btn1 {
+                z-index: 99;
+                top: 0;
+            }
+
+            .btn2 {
+                bottom: 0;
+            }
+
+            .cont1 {
+                position: absolute;
+                left: 10px;
+                top: 0px;
+            }
+
+            .cont1 img {
+                width: 230px;
+                height: 200px;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var btn1 = document.querySelector('.btn1');
+                var btn2 = document.querySelector('.btn2');
+                var cont = document.querySelector('.cont');
+                var cont1 = document.querySelector('.cont1');
+                var num = 0;
+                var speed = 20;
+                var timer = null;
+                var contH = parseInt(getComputedStyle(cont).height);
+                var cont1H = parseInt(getComputedStyle(cont1).height);
+                var reH = cont1H - contH - 2;
+
+                btn2.onmouseup = function () {
+                    clearInterval(timer)
+                };
+                btn2.onmousedown = function () {
+                    timer = setInterval(function () {
+                        console.log('next', num);
+                        if (-num >= reH) {
+                            cont1.style.top = -reH + 'px';
+                            clearInterval(timer);
+                        } else {
+                            num -= speed;
+                            cont1.style.top = num + 'px';
+                        }
+                    }, 60)
+                };
+                btn1.onmouseup = function () {
+                    clearInterval(timer)
+                };
+                btn1.onmousedown = function () {
+                    timer = setInterval(function () {
+                        console.log('prev', num);
+                        if (num >= 0) {
+                            cont1.style.top = 0 + 'px';
+                            clearInterval(timer);
+                        } else {
+                            num += speed;
+                            cont1.style.top = num + 'px';
+                        }
+                    }, 60)
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <div class="btn1">∧</div>
+            <div class="cont1">
+                <img src="../images/2.jpg"/>
+                <img src="../images/3.jpg"/>
+                <img src="../images/4.jpg"/>
+                <img src="../images/5.jpg"/>
+                <img src="../images/6.jpg"/>
+                <img src="../images/7.jpg"/>
+                <img src="../images/8.jpg"/>
+                <img src="../images/9.jpg"/>
+            </div>
+            <div class="btn2">∨</div>
+        </div>
+    </body>
+</html>

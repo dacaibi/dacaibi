@@ -4,44 +4,123 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <style>
-            .cont{ padding-left: 15px; padding-top: 15px; width: 500px; height: 230px; background: #ccc; margin: 0 auto;}
-            .hd{ margin-bottom: 5px;}
-            .hd div{ display: inline-block;}
-            .hd div.on{ border: 5px solid #FF33cc;}
-            .bd1{ float: left;}
-            .hd1{ float: left;}
-            .hd1 div{ width: 285px; height: 60px; line-height: 60px; font-size: 24px; text-align: center;}
-            .hd1 div.on{ background: #66FFFF;}
-            .bd1 div{ display: none;}
-            .bd1 div.on{ display: block;}
-            .bd1 div img{ width: 200px; height: 180px;}
-            .bd_div{ display: none;}
-            .bd_div.on{ display: block;}
+            .cont {
+                padding-left: 15px;
+                padding-top: 15px;
+                width: 500px;
+                height: 230px;
+                background: #ccc;
+                margin: 0 auto;
+            }
+
+            .hd {
+                margin-bottom: 5px;
+            }
+
+            .hd div {
+                display: inline-block;
+                border: 5px solid #ccc;
+            }
+
+            .hd div.on {
+                border: 5px solid #FF33cc;
+            }
+
+            .bd1 {
+                float: left;
+            }
+
+            .hd1 {
+                float: left;
+            }
+
+            .hd1 div {
+                width: 285px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .hd1 div.on {
+                background: #66FFFF;
+            }
+
+            .bd1 div {
+                display: none;
+            }
+
+            .bd1 div.on {
+                display: block;
+            }
+
+            .bd1 div img {
+                width: 200px;
+                height: 180px;
+            }
+
+            .bd_div {
+                display: none;
+            }
+
+            .bd_div.on {
+                display: block;
+            }
         </style>
         <script>
-            window.onload=function () {
-                var cont=document.querySelector('.cont');
-                var btn=cont.querySelectorAll('.hd>div');
-                var cut=cont.querySelectorAll('.bd>div');
-                tab(btn, cut);
-                for (var i = 0; i < cut.length; i++) {
-                    var btnI = cut[i].querySelectorAll('.hd1>div');
-                    var cutI = cut[i].querySelectorAll('.bd1>div');
-                    tab(btnI, cutI);
-                };
-                function tab(btn, cut) {
-                    for (var i=0; i<btn.length;i++){
-                        btn[i].index=i;
-                        btn[i].onmouseover=function () {
-                            for (var i=0; i<btn.length;i++){
+            window.onload = function () {
+                var cont = document.querySelector('.cont');
+                var btnWrap = cont.querySelectorAll('.hd>div');
+                var cutWrap = cont.querySelectorAll('.bd>div');
+                tab(btnWrap, cutWrap); // 默认都会自动走定时器。所以上面也是变。可以参数控制
+                for (var i = 0; i < cutWrap.length; i++) {
+                    var btnI = cutWrap[i].querySelectorAll('.hd1>div');
+                    var cutI = cutWrap[i].querySelectorAll('.bd1>div');
+                    tab(btnI, cutI, true);
+                }
+
+                function tab(btn, cut, isAutoPlay) {
+                    var timer = null;
+                    var num = 0;
+                    var len = btn.length;
+                    var overflow = 0;// 第几次超出
+                    for (var i = 0; i < len; i++) {
+                        btn[i].index = i;
+                        btn[i].onmouseover = function () {
+                            for (var i = 0; i < len; i++) {
                                 btn[i].classList.remove('on');
                                 cut[i].classList.remove('on');
-                            };
+                            }
                             this.classList.add('on');
+                            num = this.index; // 索引同步
                             cut[this.index].classList.add('on');
                         };
-                    };
-                };
+                    }
+                    // 每隔2秒走一次,你也看到了，我移动到第三个，下次居然走到第二个，因为索引需要同步
+                    if(isAutoPlay === true){
+                        timer = setInterval(function () {
+                            num++;
+                            if (num >= len) {
+                                overflow++; // 第1次超出是1 第2次超出是2 第3次超出是3
+                                num = 0; // 在这里不就是跳到最后一个了。。这个时候。。只需要触发切换
+                                for (var i = 0; i < btnWrap.length; i++) {
+                                    btnWrap[i].classList.remove('on');
+                                    btnWrap[i].classList.remove('on');
+                                }
+                                // 1%2=>1 2%2=>2 3%2=>1 4%2=>0
+                                btnWrap[overflow%2].classList.add('on');
+                                btnWrap[overflow%2].classList.add('on');
+                            }
+                            for (var i = 0; i < len; i++) {
+                                btn[i].classList.remove('on');
+                                cut[i].classList.remove('on');
+                            }
+                            btn[num].classList.add('on');
+                            cut[num].classList.add('on');
+                        }, 2000);
+                    }
+                    // 还有就是，鼠标移入应该清楚定时器。移除。。定时器需要重新打开。所以要把定时器封装一个函数调用
+                }
             };
         </script>
     </head>

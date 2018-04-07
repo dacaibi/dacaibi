@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .cont {
+                position: relative;
+                width: 500px;
+                height: 363px;
+                border: 1px solid #cccccc;
+                margin: 0 auto;
+            }
+
+            .hd .div {
+                border: 1px solid #ccc;
+                width: 70px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+
+            .hd .div.on {
+                background: #ffff99;
+            }
+
+            .bd div {
+                width: 265px;
+                height: 300px;
+                display: none;
+            }
+
+            .bd div img {
+                margin-left: 72px;
+                width: 356px;
+                height: 363px;
+            }
+
+            .bd div.on {
+                display: block;
+            }
+
+            .div_1 {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .div_2 {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var con = document.querySelector('.cont');
+                var hd = document.querySelectorAll('.div');
+                var bd = document.querySelectorAll('.bd>div');
+                var timer = null;
+                var num = 0;
+                var isOv = false;
+                fn1();
+
+                function fn1() {
+                    for (var i = 0; i < hd.length; i++) {
+                        hd[i].index = i;
+                        hd[i].onmouseover = function () {
+                            num = this.index;
+                            tab(this.index);
+                        }
+                    }
+
+                    function tab(num) {
+                        for (var i = 0; i < hd.length; i++) {
+                            hd[i].classList.remove('on');
+                            bd[i].classList.remove('on');
+                        }
+                        hd[num].classList.add('on');
+                        bd[num].classList.add('on');
+                    }
+
+                    function auto() {
+                        timer = setInterval(function () {
+                            if (!isOv) {
+                                num++;
+                            } else {
+                                num--;
+                            }
+                            if (num === hd.length) {
+                                num--;
+                                isOv = true;
+                            }
+                            if (num < 0) {
+                                num++;
+                                isOv = false;
+                            }
+                            tab(num);
+                        }, 500);
+                    }
+
+                    auto();
+                    con.addEventListener('mouseover', function () {
+                        clearInterval(timer);
+                    });
+                    con.addEventListener('mouseout', function () {
+                        auto();
+                    })
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cont">
+            <div class="hd">
+                <div class="div_1">
+                    <div class="on div">图1</div>
+                    <div class="div">图2</div>
+                    <div class="div">图3</div>
+                    <div class="div">图4</div>
+                    <div class="div">图5</div>
+                    <div class="div">图6</div>
+                    <div class="div">图7</div>
+                </div>
+                <div class="div_2">
+                    <div class="div">图8</div>
+                    <div class="div">图9</div>
+                    <div class="div">图10</div>
+                    <div class="div">图11</div>
+                    <div class="div">图12</div>
+                    <div class="div">图13</div>
+                    <div class="div">图14</div>
+                </div>
+            </div>
+            <div class="bd">
+                <div class="on"><img src="../images/1.jpg"></div>
+                <div><img src="../images/2.jpg"></div>
+                <div><img src="../images/3.jpg"></div>
+                <div><img src="../images/4.jpg"></div>
+                <div><img src="../images/5.jpg"></div>
+                <div><img src="../images/6.jpg"></div>
+                <div><img src="../images/7.jpg"></div>
+                <div><img src="../images/8.jpg"></div>
+                <div><img src="../images/9.jpg"></div>
+                <div><img src="../images/10.jpg"></div>
+                <div><img src="../images/11.jpg"></div>
+                <div><img src="../images/12.jpg"></div>
+                <div><img src="../images/13.jpg"></div>
+                <div><img src="../images/14.jpg"></div>
+            </div>
+        </div>
+    </body>
+</html>
