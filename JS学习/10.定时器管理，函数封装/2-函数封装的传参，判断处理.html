@@ -21,33 +21,33 @@
                 //var timer=null;
                 //div.timer=null;
                 btn.onclick = function () {
-                    clearInterval(div.timer);
-                    div.timer=setInterval(function () {
-                        var speed=parseInt(getStyle(div,'left'))+12;
-                        if (speed>800){
-                            speed=800;
-                        }
-                        div.style.left =speed+'px';
-                        if (speed==800){
-                            clearInterval(timer);
-                        }
-                    },30)
-
+                    doMove(div, 12, 800);
                 };
                 btn2.onclick = function () {
-                    clearInterval(div.timer);
-                    div.timer=setInterval(function () {
-                        var speed=parseInt(getStyle(div,'left'))+-12;
-                        if (speed<10){
-                            speed=10;
-                        }
-                        div.style.left =speed+'px';
-                        if (speed<10){
-                            clearInterval(timer);
-                        }
-                    },30)
-
+                    doMove(div, -12, 10);
                 };
+
+                /*
+                  div   12  800 >
+                  div  -12  10  <
+                    doMove(div,12,800)
+                 */
+                function doMove(obj, dir, target) {
+                    clearInterval(obj.timer);
+                    obj.timer = setInterval(function () {
+                        var speed = parseInt(getStyle(obj, 'left')) + dir;
+                        if (speed > target && dir > 0) {
+                            speed = target;
+                        }
+                        if (speed < target && dir < 0) {
+                            speed = target;
+                        }
+                        obj.style.left = speed + 'px';
+                        if (speed == target) {
+                            clearInterval(obj.timer);
+                        }
+                    }, 30)
+                }
 
                 function getStyle(obj, attr) {
                     return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];

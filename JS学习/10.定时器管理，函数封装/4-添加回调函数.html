@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div1 {
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+                top: 50px;
+                left: 30px;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var btn = document.querySelector('input');
+                var div = document.querySelector('div');
+                //var timer=null;
+                //div.timer=null;
+                btn.onclick = function () {
+                    doMove(div, 'left', 12, 900,function () {
+                        doMove(div,'top',34,500);
+                    });
+                };
+                /*
+                  div left  12  800 >
+                  div left -12  10  <
+                    doMove(div,12,800)
+                 */
+                function doMove(obj, attr, dir, target,endFn) {
+                    dir = parseInt(getStyle(obj, attr)) < target ? dir : -dir;
+                    clearInterval(obj.timer);
+                    obj.timer = setInterval(function () {
+                        var speed = parseInt(getStyle(obj, attr)) + dir;
+                        if (speed > target && dir > 0 || speed < target && dir < 0) {
+                            speed = target;
+                        }
+                        obj.style[attr] = speed + 'px';
+                        if (speed == target) {
+                            clearInterval(obj.timer);
+                            /*
+                            if (endFn){
+                                endFn();
+                            }
+                            */
+                            endFn&&endFn();
+                        }
+                    }, 30)
+                }
+                function getStyle(obj, attr) {
+                    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input class="input1" type="button" value="走">
+        <div class="div1"></div>
+    </body>
+</html>
