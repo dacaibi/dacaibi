@@ -4,17 +4,22 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <style>
-            img{ position: absolute; top:200px; width: 100px; height: 100px; border: 5px solid #66FFFF;}
+            img {
+                position: absolute;
+                top: 200px;
+                width: 100px;
+                height: 100px;
+                border: 5px solid #66FFFF;
+            }
         </style>
-        <script src="../currency/shake.js"></script>
+        <script src="../currency/zq.js"></script>
         <script>
-            window.onload=function () {
-                var img= document.querySelectorAll('img');
-                for (var i=0; i<img.length;i++){
-
-                    img[i].style.left=80+i*110+'px';
-                    img[i].onmouseover=function () {
-                        shake(this,'top')
+            window.onload = function () {
+                var img = document.querySelectorAll('img');
+                for (var i = 0; i < img.length; i++) {
+                    img[i].style.left = 80 + i * 110 + 'px';
+                    img[i].onmouseover = function () {
+                        zq.shake(this, 'top');
                     }
                 }
             }

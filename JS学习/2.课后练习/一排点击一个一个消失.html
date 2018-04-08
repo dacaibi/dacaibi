@@ -4,9 +4,17 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <style>
-            .cont{background: #66FFFF; width:550px; height: 50px; border: 1px solid #cccccc;}
-            .cont div{ display: inline-block; font-size: 24px; line-height: 50px; width: 50px; text-align: center;}
+            .cont{ position: relative; margin:200px auto; background: #66FFFF; width:550px; height: 50px; border: 1px solid #cccccc;}
+            .cont div{ position: absolute; left: 0; top: 0; display: inline-block; font-size: 24px; line-height: 50px; width: 50px; text-align: center;}
         </style>
+        <script>
+            window.onload=function () {
+                var cont=document.querySelector('.cont');
+                var div=cont.querySelectorAll('.cont>div');
+
+
+            }
+        </script>
     </head>
     <body>
         <div class="cont">
