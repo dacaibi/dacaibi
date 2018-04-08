@@ -16,15 +16,26 @@
                 }
                 document.body.innerHTML = str;
                 document.onclick = function () {
-
                     clearInterval(timer);
-                    setInterval(function () {
-                        doMove(div[num], 'top', 22, 500);
-                        num++;
-                        if (num === len){
-                            clearInterval(timer);
-                        }
-                    }, 100)
+                    if (parseInt(getStyle(div[num],'top'))===10){
+                        timer=setInterval(function () {
+                            doMove(div[num], 'top', 22, 500);
+                            num++;
+                            if (num === len){
+                                clearInterval(timer);
+                                num=0;
+                            }
+                        }, 100)
+                    }else if (parseInt(getStyle(div[num],'top'))===500){
+                        timer=setInterval(function () {
+                            doMove(div[len-1], 'top', 22, 10);
+                            len--;
+                            if (len === 0){
+                                clearInterval(timer);
+                                len=20;
+                            }
+                        }, 100)
+                    }
                 }
             }
         </script>
