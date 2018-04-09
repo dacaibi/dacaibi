@@ -77,10 +77,10 @@
                 fn();
                 function fn(){
                     setTimeout(function(){
-                        zq.doMove( bg[num],'bottom',10,-80,100,function(){      //  1: 收回弹框
+                        zq.doMove( bg[num],'bottom',10,-50,100,function(){      //  1: 收回弹框
                             var that = div[num];
-                            zq.doMove( that,'left',40,-400,100,function(){    /// 2 ：图片左移动到 -400
-                                that.style.left = '400px';
+                            zq.doMove( that,'left',40,-200,100,function(){    /// 2 ：图片左移动到 -200
+                                that.style.left = '200px';
                             } );
                             if( num === div.length-1 ){
                                 num = -1;
