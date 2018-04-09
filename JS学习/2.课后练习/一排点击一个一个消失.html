@@ -4,13 +4,73 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <style>
-            .cont{ position: relative; margin:200px auto; background: #66FFFF; width:550px; height: 50px; border: 1px solid #cccccc;}
-            .cont div{ position: absolute; left: 0; top: 0; display: inline-block; font-size: 24px; line-height: 50px; width: 50px; text-align: center;}
+            .cont {
+                position: relative;
+                margin: 200px auto;
+                width: 500px;
+                height: 50px;
+                border: 1px solid #cccccc;
+            }
+
+            .cont .mask {
+                position: absolute;
+                width: 0;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: #66FFFF;
+                transition: 2s;
+                opacity: 0;
+            }
+            .cont.active .mask{
+                width: 100%;
+                opacity: 1;
+            }
+            .cont.active2 .mask{
+                opacity: 0;
+            }
+
+            .cont .font > div {
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: inline-block;
+                font-size: 24px;
+                line-height: 50px;
+                width: 50px;
+                text-align: center;
+            }
         </style>
+        <script src="../currency/zq.js"></script>
         <script>
-            window.onload=function () {
-                var cont=document.querySelector('.cont');
-                var div=cont.querySelectorAll('.cont>div');
+            window.onload = function () {
+                var cont = document.querySelector('.cont');
+                var div = cont.querySelectorAll('.font>div');
+                var num = 0;
+                function fn() {
+                    for (var i = 0; i < div.length; i++) {
+                        div[i].style.left = i * 50 + 'px';
+                    }
+                }
+                fn();
+                cont.onclick = function () {
+                    if(cont.onOff)return;
+                    cont.onOff=true;
+                    fn();
+                    cont.classList.add('active');
+                    setTimeout(function () {
+                        cont.classList.add('active2');
+                    },2000);
+                    clearInterval(cont.timer);
+                    cont.timer = setInterval(function () {
+                        zq.doMove2(div[num], 'top', 10, -200);
+                        zq.doMove2(div[num], 'opacity', 0.1, 0);
+                        num++;
+                        if (num == div.length) {
+                            clearInterval(cont.timer);
+                        }
+                    }, 200);
+                };
 
 
             }
@@ -18,16 +78,19 @@
     </head>
     <body>
         <div class="cont">
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
-            <div>+1</div>
+            <div class="mask"></div>
+            <div class="font">
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+                <div>+1</div>
+            </div>
         </div>
     </body>
 </html>

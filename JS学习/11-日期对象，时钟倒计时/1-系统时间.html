@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            /*
+
+                系统时间对象
+
+             */
+            //alert(new Date())       //当前 系统的时间对象
+            //myTime typeof object
+            window.onload=function () {
+                var body=document.querySelector('body');
+                setInterval(function () {
+                    fn();
+                },1000);
+                fn();
+                function fn() {
+                    var myTime=new Date();
+                    //number
+                    var iYear=myTime.getFullYear();
+                    var iMonth=myTime.getMonth()+1;
+                    var iDate=myTime.getDate();
+                    var iDay=myTime.getDay();
+                    var iHours=myTime.getHours();
+                    var iMin=myTime.getMinutes();
+                    var iSec=myTime.getSeconds();
+                    var str='';
+                    if (iDay===0)iDay='星期日';
+                    if (iDay===1)iDay='星期一';
+                    if (iDay===2)iDay='星期二';
+                    if (iDay===3)iDay='星期三';
+                    if (iDay===4)iDay='星期四';
+                    if (iDay===5)iDay='星期五';
+                    if (iDay===6)iDay='星期六';
+                    str=iYear+'年'+two(iMonth)+'月'+two(iDate)+'日 '+iDay+' '+two(iHours)+':'+two(iMin)+':'+two(iSec);
+
+                    body.innerHTML=str;
+                }
+            }
+            function two(n) {
+                return n<10?'0'+n:''+n;
+            }
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

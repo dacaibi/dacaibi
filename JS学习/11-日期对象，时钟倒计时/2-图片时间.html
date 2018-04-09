@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload = function () {
+                var body = document.querySelector('body');
+                var time = document.querySelector('.time');
+                var img = document.querySelectorAll('img');
+                setInterval(function () {
+                    fn();
+                }, 1000);
+                fn();
+
+                function fn() {
+                    var myTime = new Date();
+                    var iHours = myTime.getHours();
+                    var iMin = myTime.getMinutes();
+                    var iSec = myTime.getSeconds();
+                    var str = two(iHours) + two(iMin) + two(iSec);
+                    for (var i = 0; i < str.length; i++){
+                        img[i].src = '../images/' + str.charAt(i) + '.JPG';
+                    }
+                }
+            };
+
+            function two(n) {
+                return n < 10 ? '0' + n : '' + n;
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <div class="time" style="font-size: 60px;"></div>
+        <img src="../images/0.JPG" alt="">
+        <img src="../images/0.JPG" alt="">
+        <img src="../images/0.JPG" alt="">
+        <img src="../images/0.JPG" alt="">
+        <img src="../images/0.JPG" alt="">
+        <img src="../images/0.JPG" alt="">
+    </body>
+</html>

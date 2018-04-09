@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+                var body = document.querySelector('body');
+
+                /*
+            现在的时间点（在变）
+            未来的时间点（不变）
+             */
+                fn();
+
+                setInterval(function () {
+                    fn();
+                }, 1000);
+
+                function fn() {
+                    var iNow = new Date();
+                    //var iNew = new Date(2018, 3, 10, 18, 13);
+                    var iNew = new Date('April 11,2018 18:25:0');
+                    var t = Math.floor((iNew - iNow) / 1000);//毫秒-秒
+                    var str = Math.floor(t / 86400) + '天' + Math.floor(t % 86400 / 3600) + '时' + Math.floor(t % 86400 % 3600 / 60) + '分' + t % 60 + '秒';
+                    body.innerHTML = str;
+                    //alert(str)
+                    // 天:Math.floor(t/86400);
+                    // 时:Math.floor(t%86400/3600);
+                    // 分:Math.floor(t%86400%3600/60);
+                    // 秒:t%60
+                    //数字形式 new Date(2018,3,9,18,10)
+                    //字符串形式new Date('April 3,2018 18:12:15')
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

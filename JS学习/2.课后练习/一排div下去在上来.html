@@ -19,7 +19,7 @@
                     clearInterval(timer);
                     if (parseInt(zq.getStyle(div[num],'top'))===10){
                         timer=setInterval(function () {
-                            zq.doMove(div[num], 'top', 22, 500);
+                            zq.doMove(div[num], 'top', 22, 500,20);
                             num++;
                             if (num === len){
                                 clearInterval(timer);
@@ -28,7 +28,7 @@
                         }, 100)
                     }else if (parseInt(zq.getStyle(div[num],'top'))===500){
                         timer=setInterval(function () {
-                            zq.doMove(div[len-1], 'top', 22, 10);
+                            zq.doMove(div[len-1], 'top', 22, 10,20);
                             len--;
                             if (len === 0){
                                 clearInterval(timer);

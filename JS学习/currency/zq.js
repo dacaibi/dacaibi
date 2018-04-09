@@ -2,7 +2,7 @@ var zq = {
     getStyle: function (obj, attr) {
         return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
     },
-    doMove: function (obj, attr, dir, target, endFn) {
+    doMove:  function(obj, attr, dir, target,time,endFn) {
         dir = parseInt(zq.getStyle(obj, attr)) < target ? dir : -dir;
         clearInterval(obj.timer);
         obj.timer = setInterval(function () {
@@ -18,6 +18,31 @@ var zq = {
                     endFn();
                 }
                 */
+                endFn&&endFn();
+            }
+        }, time)
+    },
+    doMove2: function (obj, attr, dir, target, endFn) {
+        dir = parseFloat(zq.getStyle(obj, attr)) < target ? dir : -dir;
+        if(!obj.json){
+            obj.json = {};
+        }
+        if (!obj.json[attr]) {
+            obj.json[attr] = {};
+        }
+        clearInterval(obj.json[attr].timer);
+        obj.json[attr].timer = setInterval(function () {
+            var speed = parseFloat(zq.getStyle(obj, attr)) + dir;
+            if (speed > target && dir > 0 || speed < target && dir < 0) {
+                speed = target;
+            }
+            if (attr === 'opacity') {
+                obj.style[attr] = speed;
+            } else {
+                obj.style[attr] = speed + 'px';
+            }
+            if (speed == target) {
+                clearInterval(obj.json[attr].timer);
                 endFn && endFn();
             }
         }, 30)
