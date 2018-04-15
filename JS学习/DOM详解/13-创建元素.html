@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <input type="button" name="" value="点击添加">
+        <div class="div">
+        </div>
+        <script>
+            var btn=document.querySelector('input');
+            var div=document.querySelector('.div');
+            var str='';
+            var num=0;
+            /*
+                document.createElement('标签的名字'):
+                    创建元素
+                parentNode.appendChild(childNode):
+                    插入元素(父级末尾添加一个元素)
+
+                parentNode.insertBefore(新添加的元素,已有的元素):
+                    插入元素（向父级中的某个元素前插入元素）
+                    特性：
+                        如果第二个参数为假的，那么会将某个元素添加到父元素的末位
+             */
+            btn.onclick=function () {
+                num++;
+                var div1=document.createElement('div');//创建元素
+                div1.innerHTML=num;
+                div.insertBefore(div1,div.children[0]);//将div的第一个子节点前插入元素
+
+                // div1.innerHTML=num;
+                // div.appendChild(div1);
+
+                //console.log(div1)
+                // str+='<div>'+num+'</div>';
+                // div.innerHTML=str;
+            }
+
+        </script>
+    </body>
+</html>

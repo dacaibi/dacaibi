@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{width: 200px; text-indent: 15px;}
+            .div div{ line-height: 36px; background: #f0f0f0;}
+            .div div.on{ background:#333; color: #fff;}
+            .div div.fk{ background: #333; font-size: 20px; color: #fff;}
+            .div div.wt{ background: #ccc; color:#66FFFF;}
+            .div div.wq{ background: #ffCC33; color: #333333;}
+        </style>
+    </head>
+    <body>
+        <div class="div">
+            <div class="on">这是首行</div>
+            <div>11111</div>
+            <div>22222</div>
+            <div>33333</div>
+            <div>44444</div>
+            <div>55555</div>
+            <div>66666</div>
+            <div>55555</div>
+            <div>44444</div>
+            <div>33333</div>
+            <div>22222</div>
+            <div>11111</div>
+            <div class="on">这是末行</div>
+        </div>
+        <script>
+            var div=document.querySelector('.div');
+            var iv=div.children;
+            var dy=div.firstElementChild;
+            var zh=div.lastElementChild;
+            for (var i=0; i<iv.length;i++){
+                iv[i].onmouseover=function () {
+                    if(this==dy||this==zh){
+                        this.classList.add('wq');
+                    }else {
+                        this.classList.add('fk');
+                        this.nextElementSibling.classList.add('wt');
+                        this.previousElementSibling.classList.add('wt');
+                        dy.classList.remove('wt');
+                        zh.classList.remove('wt');
+                    };
+                };
+                iv[i].onmouseout=function () {
+                    for(var i=0; i<iv.length;i++){
+                        iv[i].className='';
+                    }
+                    dy.classList.add('on');
+                    zh.classList.add('on');
+                }
+            }
+        </script>
+    </body>
+</html>

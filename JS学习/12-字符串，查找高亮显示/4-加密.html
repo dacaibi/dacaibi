@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <input type="text">
+        <input type="button" value="加密">
+        <div class="div1">加密。。。</div>
+        <script>
+            var inp=document.querySelectorAll('input');
+            var div=document.querySelector('.div1');
+            inp[1].onclick=function () {
+                var str=inp[0].value;
+                var str1='';
+                //alert(str.charCodeAt())
+                for (var i=0; i<str.length;i++){
+                    str1+=String.fromCharCode(str.charCodeAt(i)-1000);
+                }
+                div.innerHTML=str1;
+            }
+        </script>
+    </body>
+</html>

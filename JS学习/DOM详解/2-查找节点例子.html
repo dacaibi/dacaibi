@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div>div{ transition: 1s; width: 20px; height: 30px; background: #f00; margin: 5px;}
+        </style>
+    </head>
+    <body>
+        <div class="div">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+        </div>
+        <script>
+            var div=document.querySelector('.div');
+            var iv=div.children;
+            /*
+            children:不是标准的属性，但是所有的浏览器都支持
+            找到某个元素下所有的元素节点。
+             */
+            document.onclick=function () {
+                for (var i=0; i<iv.length;i++){
+                    //if(iv[i].nodeType===1){
+                        iv[i].style.width='150px';
+                    //}
+                }
+            }
+        </script>
+    </body>
+</html>

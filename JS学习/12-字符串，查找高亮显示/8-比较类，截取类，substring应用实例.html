@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div{ width: 350px; border: 5px solid #ccc; margin: 50px auto;}
+        </style>
+        <script>
+            /*
+            比较类
+            //alert('刘'.charCodeAt());
+            //alert('莫涛'>'刘伟');
+            //alert('abbbbb'>'b')
+            //alert('10000'>'2');
+            */
+            //截取类
+            //var str='妙味课堂是一支独具特色的IT培训团队';
+            //alert(str.substring(0,2));
+            //alert(str.substring(2,0));//可以检测两个数的大小，大的放后面 小的往前扔
+            //alert(str.substring(-3,2));//负数默认为0；
+            //alert(str.substring(2,-3));
+            //alert(str.slice(2,0));//不交换位置
+            //alert(str.slice(-4,-2));//负数从后面倒着往前来数~
+            window.onload=function () {
+                var div=document.querySelector('div');
+                var span=document.querySelector('span');
+                var a=document.querySelector('a');
+                var str=span.innerHTML;
+                var onOff=true;
+                a.onclick=function () {
+                    if(onOff){
+                        span.innerHTML=str.substring(0,18);
+                        a.innerHTML='>>展开';
+                    }else {
+                        span.innerHTML=str;
+                        a.innerHTML='>>收缩';
+                    }
+                    onOff=!onOff;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div><span>妙味课堂是一支独具特色的IT培训团队,妙味反对传统IT教育枯燥乏
+            味的教学模式，妙味提供一种全新的快乐学习的方法！
+        </span><a href="javascript:;">>>收缩</a></div>
+    </body>
+</html>

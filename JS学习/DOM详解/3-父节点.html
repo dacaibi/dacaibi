@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div class="div">
+            <div>11</div>
+            <div>22</div>
+            <div>33</div>
+        </div>
+        <script>
+            /*
+                parentNode:
+                    查找某个元素的父节点
+             */
+            var div=document.querySelector('.div');
+            var iv=div.children;
+
+            console.log(iv[0].parentNode)
+        </script>
+    </body>
+</html>

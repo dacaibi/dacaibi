@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div class="div">
+            <div><a href="javascript:;">隐藏1</a></div>
+            <div><a href="javascript:;">隐藏2</a></div>
+            <div><a href="javascript:;">隐藏3</a></div>
+            <div><a href="javascript:;">隐藏4</a></div>
+        </div>
+        <script>
+            var div=document.querySelector('.div');
+            var iv=div.children;
+            var a=document.querySelectorAll('a');
+            for (var i=0; i<a.length;i++){
+                a[i].onclick=function () {
+                    this.parentNode.style.display='none';
+                }
+            }
+        </script>
+    </body>
+</html>

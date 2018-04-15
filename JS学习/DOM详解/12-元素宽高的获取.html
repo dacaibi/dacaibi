@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                background: red;
+                border: 10px solid #333333;
+                padding: 5px;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div"></div>
+        <script>
+            var div=document.querySelector('div');
+            var ksW=document.documentElement.clientWidth;
+            var ksH=document.documentElement.clientHeight;
+            var zjW=div.offsetWidth;
+            var zjH=div.offsetHeight;
+            div.style.left=(ksW-zjW)/2+'px';
+            div.style.top=(ksH-zjH)/2+'px';
+            //console.log((ks-zj)/2)
+            //console.log(document.documentElement.clientWidth);
+            //console.log(document.documentElement.clientHeight);
+            /*
+                document.documentElement.clientWidth:
+                    可视区的宽
+                document.documentElement.clientHeight：
+                    可视区的高
+
+                elem.clientWidth/elem.clientHeight:
+                    获取某个元素的宽高
+                    注意：不计算边框
+                    加上padding
+                elem.offsetWidth/elem.offsetHeight:
+                    获取某个元素的宽高
+                    注意:计算边框
+                    加上padding
+             */
+
+            //console.log(div.clientWidth);
+            //console.log(div.offsetWidth);
+
+        </script>
+    </body>
+</html>

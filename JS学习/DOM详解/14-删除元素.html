@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <input type="button" name="" value="点击添加">
+        <div class="div">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <script>
+            var btn=document.querySelector('input');
+            var div=document.querySelector('.div');
+            /*
+                删除节点：
+                    父级.removeChild(指定的子节点)
+                注意：
+                    如果指定的子节点没有会报错，要进行判断
+             */
+            btn.onclick=function () {
+                if(div.lastElementChild){
+                    div.removeChild(div.lastElementChild);
+                }else {
+                    alert('已经没了');
+                }
+            }
+
+        </script>
+    </body>
+</html>

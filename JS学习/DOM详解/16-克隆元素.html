@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+            .div1{
+                width: 100px;
+                height: 100px;
+                background: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" name="" value="点击添加">
+        <div class="cont">
+            <div class="div"></div>
+            <hr>
+            <div class="div1">
+                <p>ss</p>
+            </div>
+        </div>
+        <script>
+            var btn=document.querySelector('input');
+            var div=document.querySelector('.div');
+            var div1=document.querySelector('.div1');
+            var cont=document.querySelector('.cont');
+            var hr=document.querySelector('hr');
+            /*
+                需求：
+                    当点击按钮的时候，将蓝色方块克隆一份出来放到红色的方块下
+                元素.cloneNode（）：
+                    克隆某个元素
+                注意：
+                    在克隆的时候，默认(false)只克隆指定元素本身
+                    不会克隆该元素下的所有子节点
+                    cloneNode（）有参数默认为false
+                    事件是不会被克隆的
+                注意：
+                    appendChild/insertBefore/replaceChild
+                    在操作一个已有的元素时，是将已有的元素移动
+                    而不是复制一份进行操作
+
+             */
+            btn.onclick=function () {
+                var clone=div1.cloneNode(true);
+                cont.insertBefore(clone,hr)
+            }
+
+        </script>
+    </body>
+</html>

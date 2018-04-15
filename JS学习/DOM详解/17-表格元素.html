@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <table class="box" border="">
+            <thead class="head">
+                <tr>
+                    <th>头1</th>
+                    <th>头2</th>
+                    <th>头3</th>
+                    <th>头4</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>统计一</td>
+                    <td>统计二</td>
+                    <td>统计三</td>
+                    <td>统计四</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                </tr>
+                <tr>
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            var box=document.querySelector('.box');
+            var head=document.querySelector('.head');
+            /*
+                table.tHead-->获取tHead
+
+                table.rows[]-->获取tr 获取的行数[一组]
+
+                table.tFoot-->获取表格底部
+
+                table.tBodies-->获取表格主体
+
+                rows[n].cells[n]
+                    单元格 就是td
+             */
+            box.tHead.style.borderColor='red';
+            box.rows[1].style.background='blue';
+            box.tFoot.style.background='yellow';
+            box.tBodies[0].style.background='red';
+            box.tBodies[0].rows[0].cells[1].style.background='pink'
+
+        </script>
+    </body>
+</html>

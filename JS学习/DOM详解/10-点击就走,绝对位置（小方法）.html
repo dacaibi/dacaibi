@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body{margin: 0; padding: 0;}
+            #div1 {
+                position: relative;
+                background: red;
+                width: 100px;
+                height: 100px;
+                margin-left: 50px;
+                border: 10px solid #000;
+            }
+
+            #div2 {
+                background: blue;
+                position:absolute;
+                width: 60px;
+                height: 60px;
+                top: 20px;
+                left: 30px;
+                border: 10px solid #000;
+            }
+
+            #div3 {
+                width: 30px;
+                height: 30px;
+                background: yellow;
+                position: absolute;
+                top: 20px;
+                border: 1px solid #000;
+                left: 0;
+                transition: 1s;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" value="点击就走">
+        <div id="div1">
+            <div id="div2">
+                <div id="div3"></div>
+            </div>
+        </div>
+        <script>
+           var div3 = document.querySelector('#div3');
+           var btn = document.querySelector('input');
+            console.log(div3.offsetLeft);
+            btn.onclick=function () {
+                // var left=0;
+                // var elem=div3;
+                // var div3B=parseInt(getComputedStyle(div3).borderLeftWidth);
+                // while(elem){//如果有这个元素就回走循环
+                //     left+=elem.offsetLeft+parseInt(getComputedStyle(elem).borderLeftWidth);
+                //     elem=elem.offsetParent;
+                // }
+                // left-=div3B;
+                // div3.style.left=-left+'px';
+
+
+                //getBoundingClientRect(返回值为一个对象)：
+                //获取某个元素的信息（高版本，left，top，bottom，,right,width,height）
+                //注意：获取的值会根据滚动条变化的
+
+                div3.style.left=-div3.getBoundingClientRect().left+'px';
+                //console.log(div3.getBoundingClientRect().left)
+            }
+        </script>
+    </body>
+</html>

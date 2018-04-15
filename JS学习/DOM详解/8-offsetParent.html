@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div{ padding: 100px;}
+            #div1{ background: red;}
+            #div2{ background: blue;}
+            #div3{ background: yellow;}
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            <div id="div2">
+                <div id="div3"></div>
+            </div>
+        </div>
+        <script>
+            div3=document.querySelector('#div3');
+            console.log(div3.offsetParent);
+            /*
+
+                offsetParent:
+                    最近的有定位属性的祖先节点
+                    如果祖先节点都没有定位，默认body
+             */
+        </script>
+    </body>
+</html>

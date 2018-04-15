@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+            .div1{
+                width: 100px;
+                height: 100px;
+                background: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" name="" value="点击添加">
+        <div class="cont">
+            <div class="div"></div>
+            <hr>
+            <div class="div1"></div>
+        </div>
+        <script>
+            var btn=document.querySelector('input');
+            var div=document.querySelector('.div');
+            var div1=document.querySelector('.div1');
+            var cont=document.querySelector('.cont');
+            /*
+                需求：
+                    当点击按钮的时候，将红色方块替换成蓝色的方块
+
+                父级.replaceChild（替换的，被替换的）
+
+             */
+            btn.onclick=function () {
+                cont.replaceChild(div1,div);
+            }
+
+        </script>
+    </body>
+</html>

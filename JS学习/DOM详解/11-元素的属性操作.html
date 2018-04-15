@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <!--<div class="div"></div>-->
+        <img id="img" src="../images/14.jpg"/>
+        <script>
+
+            console.log(img.getAttribute('src'))
+                if(img.getAttribute('src')=='../images/14.jpg'){
+                    alert('真')
+                }else {
+                    alert('假')
+                }
+            //var div=document.querySelector('.div');
+            //div.setAttribute('index','3');
+            //div.removeAttribute('index');
+            /*
+                elem.getAttribute('key'):
+                    获取元素的行间属性
+
+                elem.setAttribute('key','value'):
+                    设置元素的行间属性
+
+                elem.removeAttribute('key'):
+                    删除元素的行间属性
+
+                特点：
+                    可以操作行间自定义的属性
+                    可以获取src，href等的相对地址
+            */
+
+        </script>
+    </body>
+</html>

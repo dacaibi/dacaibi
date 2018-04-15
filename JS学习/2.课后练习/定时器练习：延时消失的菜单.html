@@ -26,9 +26,12 @@
                             this.classList.add('on');
                     };
                     div2[i].onmouseout=function () {
-                        var SB=this;
+                        var HH=this;
                         timer=setTimeout(function () {
-                                SB.classList.remove('on')
+                                HH.classList.remove('on');
+                                for (var i=0; i<div.length;i++){
+                                    div[i].classList.remove('on');
+                                }
                         },1000);
                     }
                 };
@@ -58,13 +61,13 @@
     <body>
         <div class="hz">
             <div class="cont">
-                <div class="on">首页</div>
+                <div>首页</div>
                 <div>关于</div>
                 <div>作品</div>
                 <div>博客</div>
             </div>
             <div class="content">
-                <div class="div1 on">首页首页首页首页首页首页首页</div>
+                <div class="div1">首页首页首页首页首页首页首页</div>
                 <div class="div2">关于关于关于关于关于关于关于</div>
                 <div class="div3">作品作品作品作品作品作品作品</div>
                 <div class="div4">博客博客博客博客博客博客博客</div>

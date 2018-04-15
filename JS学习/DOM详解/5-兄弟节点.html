@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div class="div">
+            <div>11</div>
+            <div>22</div>
+            <div>33</div>
+        </div>
+        <script>
+            var div=document.querySelector('.div');
+            var iv=div.children;
+            iv[0].nextElementSibling.style.background='red';
+            iv[1].previousElementSibling.style.background='yellow';
+            /*
+                找到某个元素的下一个兄弟节点:
+                    nextElementSibling
+                找到某个元素的上一个兄弟节点:
+                    previousElementSibling
+             */
+            console.log(iv[0].nextElementSibling)
+        </script>
+    </body>
+</html>
