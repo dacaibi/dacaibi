@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background: red;
+                transition: 1s width,2s height;
+            }
+
+            .box:hover {
+                width: 200px;
+                height: 200px;
+                background: #66FFFF;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <!--
+            transition-property  要运动的样式  （all || [attr] || none）
+            transition-duration 运动时间
+            transition-delay 延迟时间
+            transition-timing-function 运动形式
+            ease：（逐渐变慢）默认值
+            linear：（匀速）
+            ease-in：(加速)
+            ease-out：（减速）
+            ease-in-out：（先加速后减速）
+            cubic-bezier 贝塞尔曲线（ x1, y1, x2, y2 ） http://matthewlein.com/ceaser/
+            实例：幻灯片效果
+
+            过渡完成事件
+            Webkit内核： obj.addEventListener('webkitTransitionEnd',function(){},false);
+            firefox: obj.addEventListener('transitionend',function(){},false);
+            实例：苹果产品展示
+            实例2：360浏览器 ipad 版导航
+
+
+        -->
+    </body>
+</html>

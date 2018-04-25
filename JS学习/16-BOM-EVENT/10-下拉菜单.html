@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            #div1{
+                width: 100px;
+                height: 200px;
+                border: 1px solid #e15671;
+                display: none;
+            }
+        </style>
+        <script>
+            /*
+                阻止冒泡:当前要阻止冒泡的事件函数中调用 event.cancelBubble=true;
+            */
+            window.onload=function(){
+                var btn=document.querySelector('input');
+                var div=document.querySelector('#div1');
+
+                btn.onclick=function (ev) {
+                    var ev=ev||event;
+                    div.style.display='block';
+                    ev.cancelBubble=true;//阻止当前对象的当前事件的冒泡
+                };
+                // btn.onmousemove=function (ev) {
+                //     var ev=ev||event;
+                //     ev.cancelBubble=true;
+                // };
+                document.onclick=function () {
+                    div.style.display='none';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="按钮">
+        <div id="div1">
+
+        </div>
+        <p>pppppp</p>
+        <p>pppppp</p>
+        <p>pppppp</p>
+        <p>pppppp</p>
+        <p>pppppp</p>
+    </body>
+</html>

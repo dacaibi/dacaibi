@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body{
+                width: 1000px;
+                height: 500px;
+                border: 1px solid #333333;
+            }
+            .box{
+                margin: 0 auto;
+                width: 100px;
+                height: 100px;
+                background: red;
+                transition: 1s;
+            }
+            body:hover .box{
+                -webkit-transform: rotate(360deg);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <!--
+            transform
+            rotate()  旋转函数 取值度数
+            deg  度数
+            Transform-origin 旋转的基点
+            skew() 倾斜函数 取值度数
+            skewX()
+            skewY()
+            scale() 缩放函数 取值 正数、负数和小数
+            scaleX()
+            scaleY()
+            translate() 位移函数
+            translateX()
+            translateY()
+            实例1：钟表效果
+            实例2：怪异的导航
+
+            Transform 执行顺序问题 — 后写先执行
+            matrix(a,b,c,d,e,f) 矩阵函数
+            通过矩阵实现缩放
+            x轴缩放 a=x*a    c=x*c     e=x*e;
+            y轴缩放 b=y*b   d=y*d     f=y*f;
+            通过矩阵实现位移
+            x轴位移: e=e+x
+            y轴位移: f=f+y
+            通过矩阵实现倾斜
+            x轴倾斜: c=Math.tan(xDeg/180*Math.PI)
+            y轴倾斜: b=Math.tan(yDeg/180*Math.PI)
+
+
+        -->
+    </body>
+</html>

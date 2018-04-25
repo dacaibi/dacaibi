@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div {
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var div = document.querySelector('.div');
+                var left = false;
+                var bottom = false;
+                var right = false;
+                var onOff = false;//top用onOff替代，top是关键字
+                document.onkeydown = down;
+                document.onkeyup = up;
+                function up(ev) {
+                    switch (ev.keyCode) {
+                        case 37:
+                            left = false;
+                            break;
+                        case 38:
+                            onOff = false;
+                            break;
+                        case 39:
+                            right = false;
+                            break;
+                        case 40:
+                            bottom = false;
+                            break;
+                    }
+                }
+                function down(ev) {
+                    switch (ev.keyCode) {
+                        case 37:
+                            left = true;
+                            break;
+                        case 38:
+                            onOff = true;
+                            break;
+                        case 39:
+                            right = true;
+                            break;
+                        case 40:
+                            bottom = true;
+                            break;
+                    }
+                }
+                setInterval(function () {
+                    var Left = div.offsetLeft;
+                    var Top = div.offsetTop;
+                    if (left) {
+                        div.style.left = Left - 10 + "px";
+                    }
+                    if (right) {
+                        div.style.left = Left + 10 + "px";
+                    }
+                    if (onOff) {
+                        div.style.top = Top - 10 + "px";
+                    }
+                    if (bottom) {
+                        div.style.top = Top + 10 + "px";
+                    }
+                },10)
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div"></div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                margin: 0 auto;
+                width: 800px;
+                height: 600px;
+                background: url("../../images/14.jpg") no-repeat;
+                background-size: 100% 100%;
+                border: 10px solid #000;
+                -webkit-mask: url('../../images/mask.png') no-repeat center;
+                transition:1s;
+            }
+
+            .box:hover {
+                 -webkit-mask-position:100% 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <!--
+            Mask-image
+            Mask-position
+            Mask-repeat
+            实例：特殊形状的幻灯片效果
+        -->
+    </body>
+</html>

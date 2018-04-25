@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <!--
+
+            关键帧——keyFrames
+            类似于flash
+            只需指明两个状态，之间的过程由计算机自动计算
+            关键帧的时间单位
+            数字：0%、25%、100%等
+            字符：from(0%)、to(100%)
+            格式
+            @keyframes 动画名称
+            {
+                动画状态
+            }
+
+            格式(2)
+            @keyframes  miaov_test
+            {
+                from { background:red; }
+                to { background:green; }
+            }
+            可以只有to
+
+
+            调用的标签(#div1、xxx:hover之类的)
+            必要属性
+            animation-name		动画名称（关键帧名称）
+            animation-duration		动画持续时间
+            例如：
+            -webkit-animation-name: ‘miaov';
+            -webkit-animation-duration: 4s;
+            例子：进度条
+            animation-play-state 播放状态（ running 播放 和paused 暂停 ）
+
+
+
+            可选属性
+            animation-timing-function	动画运动形式
+            linear	匀速。
+            ease		缓冲。
+            ease-in	由慢到快。
+            ease-out	由快到慢。
+            ease-in-out	由慢到快再到慢。
+            cubic-bezier(number, number, number, number)：	特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内
+
+
+
+            可选属性(2)
+            animation-delay			动画延迟
+            只是第一次
+            animation-iteration-count		重复次数
+            infinite为无限次
+            animation-direction			播放前重置
+            动画是否重置后再开始播放
+            alternate	动画直接从上一次停止的位置开始执行
+            normal	动画第二次直接跳到0%的状态开始执行
+
+
+
+            通过class
+            在class里加入animation的各种属性
+            直接给元素加-webkit-animation-xxx样式
+            animation的问题
+            写起来麻烦
+            没法动态改变目标点位置
+            obj.addEventListener('webkitAnimationEnd', function (){}, false);
+            实例1：无缝滚动
+
+        -->
+    </body>
+</html>

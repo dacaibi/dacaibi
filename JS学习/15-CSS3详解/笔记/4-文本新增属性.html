@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            /*
+            rgba
+            实例: 背景透明，文字不透明
+            问题：注意边框颜色透明有问题
+            body {
+                   background: url("../images/13.jpg")
+               }
+
+               .div {
+                   width: 200px;
+                   height: 200px;
+                   background: rgba(0, 0, 0, 0.5);
+                   color:rgba(255,255,255,0.5);
+                   font: 40px/100px '微软雅黑';
+                   text-align: center;
+               }
+            h1 {
+                font: 100px/200px '微软雅黑';
+                text-align: center;
+                text-shadow:-5px 20px 2px red,5px 10px 2px green,10px 10px 2px blue;
+            }*/
+
+            /*
+            文字阴影
+            h1 {
+                 font: 100px/200px '微软雅黑';
+                 text-align: center;
+                 text-shadow: 2px 2px 4px rgba(0,0,0,1);
+                 color: #000;
+                 border: 1px solid #000;
+                 transition: 1s;
+             }
+             h1:hover{
+                 color: rgba(0,0,0,0);
+                 text-shadow: 0 0 100px rgba(0,0,0,0.5);
+             }
+             -webkit-text-stroke:宽度 颜色
+
+             h1{
+                 font: 100px/200px '微软雅黑';
+                 text-align: center;
+                 color: #000;
+                 -webkit-text-stroke:3px red;
+             }
+             h1::selection{ background: #66FFFF;}
+             */
+
+            p {
+                width: 300px;
+                border: 1px solid #000;
+                font: 14px/30px '微软雅黑';
+               /* direction: rtl;
+                unicode-bidi: bidi-override;
+                */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow:ellipsis;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+        <div class="div">阿飞课堂</div>
+            rgba
+            r		Red		红		0-255
+            g	Green		绿		0-255
+            b	Blue		蓝		0-255
+            a		Alpha		透明		0-1
+
+            实例: 背景透明，文字不透明
+            问题：注意边框颜色透明有问题
+
+            文字阴影
+            text-shadow：x y blur color, …
+            参数
+            x		横向偏移
+            y		纵向偏移
+            blur		模糊距离
+            color		阴影颜色
+            文本阴影如果加很多层，会很卡很卡很卡
+
+            Direction  定义文字排列方式(全兼容)
+            Rtl 从右向左排列
+            Ltr 从右向左排列
+            注意要配合unicode-bidi 一块使用
+
+            Text-overflow 定义省略文本的处理方式
+            clip  无省略号
+            Ellipsis 省略号 (注意配合overflow:hidden和white-space:nowrap一块使用)
+            -->
+        <p>阿飞课堂真是好真是棒真是秒啊我的哦天啊  啊啊啊啊啊</p>
+    </body>
+</html>

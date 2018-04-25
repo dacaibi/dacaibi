@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+        </style>
+        <script>
+            window.onload = function () {
+                var text = document.querySelector('#text');
+                var ul = document.querySelector('ul');
+
+                text.onkeyup = function (ev) {
+                    if (this.value.trim() != '') {
+                        if(ev.keyCode==13){
+                            var li = document.createElement('li');
+                            li.innerHTML = this.value;
+                            if (ul.children[0]) {
+                                ul.insertBefore(li, ul.children[0])
+                            } else {
+                                ul.appendChild(li);
+                            }
+                            this.value='';
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id="text" type="text">
+        <ul>
+
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style class="css">
+            .wrap {
+                width: 200px;
+                height: 200px;
+                border: 2px solid #333333;
+                margin: 100px auto;
+                border-radius: 50%;
+                position: relative;
+            }
+
+            .wrap ul {
+                margin: 0;
+                padding: 0;
+                height: 200px;
+                position: relative;
+                list-style: none;
+            }
+
+            .wrap ul li {
+                width: 2px;
+                height: 6px;
+                background: #000;
+                position: absolute;
+                left: 99px;
+                top: 0;
+                -webkit-transform-origin: center 100px;
+            }
+
+            /*
+                        .wrap ul li:nth-of-type(1){
+                            -webkit-transform:rotate(0);
+                        }
+                        .wrap ul li:nth-of-type(2){
+                            -webkit-transform:rotate(6deg);
+                        }
+                        .wrap ul li:nth-of-type(3){
+                            -webkit-transform:rotate(12deg);
+                        }
+                        .wrap ul li:nth-of-type(4){
+                            -webkit-transform:rotate(18deg);
+                        }
+                        .wrap ul li:nth-of-type(5){
+                            -webkit-transform:rotate(24deg);
+                        }
+                        .wrap ul li:nth-of-type(6){
+                            -webkit-transform:rotate(30deg);
+                        }
+                        .wrap ul li:nth-of-type(7){
+                            -webkit-transform:rotate(36deg);
+                        }
+                        .wrap ul li:nth-of-type(8){
+                            -webkit-transform:rotate(42deg);
+                        }*/
+            .wrap ul li:nth-of-type(5n+1) {
+                height: 12px;
+            }
+
+            #hour {
+                width: 6px;
+                height: 45px;
+                position: absolute;
+                left: 97px;
+                top: 55px;
+                background: #000;
+                -webkit-transform-origin: bottom;
+            }
+
+            #min {
+                width: 4px;
+                height: 65px;
+                position: absolute;
+                left: 98px;
+                top: 35px;
+                background: #999;
+                -webkit-transform-origin: bottom;
+            }
+
+            #sec {
+                width: 2px;
+                height: 80px;
+                position: absolute;
+                left: 99px;
+                top: 20px;
+                background: #f00;
+                -webkit-transform-origin: bottom;
+            }
+
+            .ico {
+                width: 20px;
+                height: 20px;
+                background: #000;
+                border-radius: 50%;
+                position: absolute;
+                left: 90px;
+                top: 90px;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var ul = document.querySelector('.ul');
+                var css = document.querySelector('.css');
+                var hour = document.querySelector('#hour');
+                var min = document.querySelector('#min');
+                var sec = document.querySelector('#sec');
+                var li = '';
+                var acss = '';
+                for (var i = 0; i < 60; i++) {
+                    acss += '.wrap ul li:nth-of-type(' + (i + 1) + '){' +
+                        '' + '-webkit-transform:rotate(' + i * 6 + 'deg);' +
+                        '' + '}';
+                    li += '<li></li>'
+                }
+                ul.innerHTML = li;
+                css.innerHTML += acss;
+
+                toTime();
+                setInterval(function () {
+                    toTime();
+                }, 1000);
+
+                function toTime() {
+                    var oData = new Date();
+                    var iSec = oData.getSeconds();
+                    var iMin = oData.getMinutes() + iSec / 60;
+                    var iHour = oData.getHours() + iMin / 60;
+                    sec.style.webkitTransform = 'rotate(' + iSec * 6 + 'deg)';
+                    min.style.webkitTransform = 'rotate(' + iMin * 6 + 'deg)';
+                    hour.style.webkitTransform = 'rotate(' + iHour * 30 + 'deg)';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="wrap">
+            <ul class="ul">
+                <!--
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                -->
+            </ul>
+            <div id="hour"></div>
+            <div id="min"></div>
+            <div id="sec"></div>
+            <div class="ico"></div>
+        </div>
+    </body>
+</html>

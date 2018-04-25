@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .wrap{
+                width: 42px;
+                height: 20px;
+
+            }
+            input{
+                display: none;
+            }
+            label{
+                display: block;
+                border: 1px solid #000;
+                height: 20px;
+                border-radius:15px;
+                transition: 0.4s;
+            }
+            label .move{
+                display:block;
+                width: 20px;
+                height: 20px;
+                box-shadow:1px 0px 2px #ccc;
+                border-radius: 50%;
+                background: #fff;
+                transition: 0.4s;
+                overflow: hidden;
+            }
+            input:checked+label{
+                background:#28f028;
+            }
+            input:checked+label .move{
+                transform: translateX(20px);
+                box-shadow: none;
+            }
+            .move span{
+                width: 40px;
+                display: block;
+                line-height: 20px;
+                height: 20px;
+                transition: 0.4s;
+            }
+            input:checked+label .move span{
+                transform: translateX(-20px);
+            }
+            em{
+                text-align: center;
+                width: 50%;
+                font-size: 12px;
+                font-style: normal;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <input id="checkbox" type="checkbox">
+            <label for="checkbox">
+                <span class="move">
+                    <span>
+                        <em>on</em>
+                        <em>off</em>
+                    </span>
+                </span>
+            </label>
+        </div>
+    </body>
+</html>

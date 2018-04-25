@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function () {
+
+                var btn=document.querySelector('input');
+                var ul=document.querySelector('ul');
+                var num=0;
+                var ali=ul.getElementsByTagName('li');
+                
+                btn.onclick=function () {
+                    var li=document.createElement('li');
+                    li.innerHTML=num++;
+                    ul.insertBefore(li,ali[0]);
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="按钮">
+        <ul>
+            
+        </ul>
+    </body>
+</html>

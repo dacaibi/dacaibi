@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+            }
+        </style>
+        <script>
+            window.onload=function () {
+                var div=document.querySelector('.div');
+                //不是所有元素都能够接收键盘事件，能够响应用户输入的元素，
+                //能够接收焦点的元素就能够接收键盘事件
+
+                //onketdown:如果按下不抬起，那么会连续触发
+                //定时器
+                document.onkeydown=function (ev) {
+                    switch (ev.keyCode){
+                        case 37:
+                            div.style.left=div.offsetLeft-10+'px';
+                            break;
+                        case 38:
+                            div.style.top=div.offsetTop-10+'px';
+                            break;
+                        case 39:
+                            div.style.left=div.offsetLeft+10+'px';
+                            break;
+                        case 40:
+                            div.style.top=div.offsetTop+10+'px';
+                            break;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div">
+
+        </div>
+    </body>
+</html>

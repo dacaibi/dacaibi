@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.onload=function(){
+                /*
+                    可视区的尺寸
+                    document.documentElement.clientWidth
+                    document.documentElement.clientHeight
+                 */
+                //console.log(document.documentElement.clientWidth)
+                //console.log(document.documentElement.clientHeight)
+
+                document.onclick=function () {
+                    /*
+                        滚动条滚动的距离
+                        document.documentElement.scrollTop[scrollLeft]
+                        document.body.scrollTop[scrollLeft]
+                    */
+                    //console.log(document.documentElement.scrollTop);
+                    //处理兼容↓
+                    //var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+
+                    //内容高
+                    //oDiv.scrollHeight(Width)
+                    //console.log(document.querySelector('.div').scrollHeight)
+
+                    //文档高度
+                    // document.documentElement.offsetHeight
+                    // document.body.offsetHeight
+                    console.log(document.documentElement.offsetHeight);
+                    console.log(document.body.offsetHeight);
+
+                }
+            }
+        </script>
+    </head>
+    <body style="height: 2000px;">
+        <div class="div" style="width: 100px;height: 100px;border: 1px solid #000; padding: 10px;margin: 10px;">
+            <div style="width: 100px; height: 200px;background:red;"></div>
+        </div>
+    </body>
+</html>

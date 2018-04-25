@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            /*    div {
+                    width: 200px;
+                    height: 200px;
+                    background: #66FFFF;
+                    font: 50px/200px '微软雅黑';
+                    color: #fff;
+                    text-align: center;
+                    display: none;
+                    transition: 1s;
+                }
+                div:target{display: block;}*/
+            label {
+                float: left;
+                margin: 0 5px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            label input {
+                position: absolute;
+                left: -50px;
+                top: -50px;
+            }
+
+            span {
+                float: left;
+                width: 50px;
+                height: 50px;
+                border: 3px solid #333333;
+            }
+
+            input:checked ~ span {
+                background: #66FFFF;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <label>
+            <input type="radio" name="tab">
+            <span></span>
+        </label>
+        <label>
+            <input type="radio" name="tab">
+            <span></span>
+        </label>
+        <label>
+            <input type="radio" name="tab">
+            <span></span>
+        </label>
+
+        <!--
+        <a href="#div1">div1</a>
+        <a href="#div2">div2</a>
+        <a href="#div3">div3</a>
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <div id="div3">div3</div>
+
+        E:target 表示当前的URL片段的元素类型，这个元素必须是E
+        E:disabled 表示不可点击的表单控件
+        E:enabled 表示可点击的表单控件
+        E:checked 表示已选中的checkbox或radio
+        E:first-line 表示E元素中的第一行
+        E:first-letter 表示E元素中的第一个字符
+        E::selection表示E元素在用户选中文字时
+        E::before 生成内容在E元素前
+
+        E::after 生成内容在E元素后
+        E:not(s) 表示E元素不被匹配
+        E~F表示E元素毗邻的F元素
+        Content 属性
+
+        -->
+    </body>
+</html>

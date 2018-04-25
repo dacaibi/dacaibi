@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>无标题文档</title>
+        <style>
+            .wrap {
+                width: 200px;
+                height: 30px;
+                overflow: hidden;
+                border: 1px solid #000;
+            }
+
+            .box {
+                width: 400px;
+                height: 30px;
+                background: -webkit-repeating-linear-gradient(15deg, green 0, green 10px, #fff 10px, #fff 20px);
+                transition: 3s;
+            }
+
+            .wrap:hover .box {
+                margin-left: -100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="box"></div>
+        </div>
+        <!--
+            线性渐变格式
+            linear-gradient([<起点> || <角度>,]? <点>, <点>…)
+            只能用在背景上
+            IE filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#ff0000',GradientType='1');
+            参数
+            起点：从什么方向开始渐变		默认：top
+            left、top、left top
+            角度：从什么角度开始渐变
+            xxx deg的形式
+            点：渐变点的颜色和位置
+            black 50%，位置可选
+
+            线性渐变实例
+            最简单
+            red, green
+            从上到下
+            起点位置
+            left top, red, green
+            30deg, red, green
+            逆时针
+            repeating-linear-gradient
+
+
+
+
+        -->
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+                left: 500px;
+                top: 200px;
+            }
+        </style>
+        <script>
+            window.onload=function () {
+                var div=document.querySelector('.div');
+
+                var b='';
+
+                div.onmousedown=function (ev) {
+
+                    var divW=this.offsetWidth;
+                    var divX=ev.clientX;
+                    var divL=this.offsetLeft;
+
+                    if(divX>divL+divW-10){
+                        console.log('right');
+                        b='right';
+                    }
+                    if(divX<divL+10){
+                        console.log('left');
+                        b='left';
+                    }
+                    document.onmousemove=function (ev) {
+                        switch (b){
+                            case 'left':
+                                div.style.width=divW-(ev.clientX-divX)+'px';
+                                div.style.left=divL+(ev.clientX-divX)+'px';
+                                break;
+                            case 'right':
+                                div.style.width=divW+(ev.clientX-divX)+'px';
+                                break;
+                        }
+                    };
+                    document.onmouseup=function () {
+                        document.onmousemove=document.onmouseup=null;
+                    }
+                    return false;
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div"></div>
+    </body>
+</html>

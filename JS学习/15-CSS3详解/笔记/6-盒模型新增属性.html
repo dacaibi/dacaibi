@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style>
+            /*
+
+            body {
+                background: #000;
+            }
+
+
+            img {
+                display: block;
+                width: 200px;
+                height: 200px;
+                margin: 200px;
+                -webkit-box-reflect: right 10px -webkit-linear-gradient(right, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0) 100%);
+            }
+
+
+            //渐变
+            .box{
+                width: 100px;
+                height: 100px;
+                margin: 100px;
+                background: red;
+                box-shadow:0 0 20px 5px green,inset 0 0 10px #000;
+            }*/
+
+            .box {
+                width: 100px;
+                height: 100px;
+                background: url("../../images/13.jpg");
+                border: 5px solid #000;
+                resize: both;
+                overflow: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <!--
+
+        <img src="../images/13.jpg" alt="">
+
+
+        <div class="box"></div>
+            盒模型阴影：
+            用法
+            box-shadow:[inset] x y blur [spread] color
+            参数
+            inset：投影方式
+            inset：内投影
+            不给：外投影
+            x、y：阴影偏移
+            blur：模糊半径
+            spread：扩展阴影半径
+            先扩展原有形状，再开始画阴影
+            color
+
+            其他盒模型新增属性：
+            box-reflect 倒影
+            direction  方向     above|below|left|right;
+            距离
+            渐变（可选）
+            resize 自由缩放
+            Both 水平垂直都可以缩放
+            Horizontal 只有水平方向可以缩放
+            Vertical 只有垂直方向可以缩放
+            注意：一定要配合overflow:auto 一块使用只有水平方向可以缩放
+
+            box-sizing 盒模型解析模式
+            Content-box  标准盒模型 width/height=border+padding+content
+            Border-box   怪异盒模型 width/height=content
+
+        -->
+    </body>
+</html>

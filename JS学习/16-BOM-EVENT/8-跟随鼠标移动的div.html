@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{
+                width: 100px;
+                height: 100px;
+                background: #66FFFF;
+                position: absolute;
+                transition: 0.1s;
+            }
+        </style>
+        <script>
+            window.onload=function () {
+                var div=document.querySelector('.div');
+
+                var i=0;
+                document.onmousemove=function (ev) {
+
+                    var ev=ev||event;
+                    var scrollTop=document.documentElement.scrollLeft||document.body.scrollLeft;
+                    div.style.left=ev.clientX+'px';
+                    div.style.top=ev.clientY+scrollTop+'px';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div"></div>
+    </body>
+</html>

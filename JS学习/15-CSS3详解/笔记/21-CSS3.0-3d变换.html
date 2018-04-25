@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                padding: 100px;
+                border: 5px solid #000;
+                margin: 30px auto;
+                transform-style:preserve-3d;
+                Perspective: 100px;
+            }
+            .div{
+                width: 100px;
+                height: 100px;
+                background: #66FFFF;
+                transition: 1s;
+            }
+            .box:hover .div{
+                transform:translateZ(-50px);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="div">222</div>
+        </div>
+        <!--
+            transform-style（preserve-3d） 建立3D空间
+            Perspective 景深
+            Perspective- origin 景深基点
+            Transform 新增函数
+            rotateX()
+            rotateY()
+            rotateZ()
+            translateZ()
+            scaleZ()
+        -->
+    </body>
+</html>

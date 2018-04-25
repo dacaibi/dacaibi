@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            //call 函数下的一个方法，call方法第一个参数可以改变函数执行过程中的内部this的指向,
+            //call 方法第二个参数开始，就是原来函数的参数列表
+            function fn1(a,b) {
+                console.log(this);
+                console.log(a+b);
+            }
+            //fn1 //window
+            fn1.call(null,10,20);//调用函数  fn1（）==fn1.call（）
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: absolute;
+            }
+        </style>
+        <script>
+            window.onload=function () {
+                var div=document.querySelector('.div');
+
+                /*
+                    1.拖拽的时候，如果有文字被选中，会产生问题
+                    原因:
+                */
+                div.onmousedown=function (ev) {
+
+                    var disX=ev.clientX-this.offsetLeft;
+                    var disY=ev.clientY-this.offsetTop;
+
+                    if (div.setCapture) {
+                        div.setCapture();
+                    }
+
+                    document.onmousemove=function (ev) {
+                        div.style.left=ev.clientX-disX+'px';
+                        div.style.top=ev.clientY-disY+'px';
+                    };
+                    document.onmouseup=function () {
+                        document.onmousemove=document.onmouseup=null;
+
+                        if (div.releaseCapture) {
+                            div.releaseCapture();
+                        }
+                    }
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        dasdasdasdas
+        <div class="div"></div>
+        <div style="width: 100px;height: 100px;background: green; position: absolute; left: 400px;top: 200px;"></div>
+    </body>
+</html>

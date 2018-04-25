@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div{
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+            .div2{
+                border-radius:50%;
+                overflow: hidden;
+            }
+        </style>
+        <script>
+            /*
+                鼠标滚轮事件
+                ie/chrome:onmousewheel
+            */
+            window.onload=function(){
+                var div=document.querySelector('.div');
+                div.onmousewheel=function () {
+                    console.log(1);
+                    div.style.width='50px';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div">
+            
+        </div>
+        <div class="div2"><a href=""><img src="../images/14.jpg" alt=""></a></div>
+    </body>
+</html>

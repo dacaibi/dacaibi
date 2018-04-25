@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .div1 {
+                width: 30px;
+                height: 500px;
+                background: #000;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+
+            .div2 {
+                width: 30px;
+                height: 30px;
+                background: #66FFFF;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            .div3{
+                width: 500px;
+                background: green;
+                position: absolute;
+                left: 50px;
+                top: 10px;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var div1 = document.querySelector('.div1');
+                var div2 = document.querySelector('.div2');
+                var div3 = document.querySelector('.div3');
+                var maxT = div1.offsetHeight - div2.offsetHeight;
+
+
+                div2.onmousedown = function (ev) {
+                    var divY = ev.clientY - this.offsetTop;
+                    document.onmousemove = function (ev) {
+                        var T=ev.clientY - divY;
+                        if(T<0){
+                            T=0
+                        }else if(T>maxT){
+                            T=maxT;
+                        }
+                        div2.style.top = T + 'px';
+                        var iScale=T/maxT;
+                        document.title=iScale;
+                        div3.style.height=500*iScale+'px';
+                    };
+                    document.onmouseup = function () {
+                        document.onmousemove = document.onmouseup = null;
+                    };
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="div1">
+            <div class="div2"></div>
+        </div>
+        <div class="div3"></div>
+    </body>
+</html>
