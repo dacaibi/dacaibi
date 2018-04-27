@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <style>
-            .div{
-                width: 100px;
-                height: 100px;
-                background: red;
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .div2 {
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        /*
+            鼠标滚轮事件
+            iE/chrome:onmousewheel
+              event.wheelDelta
+                   上:120
+                   下:-120
+
+            Moz:DOMMouseScroll:必须用addEventListener
+              event.detail
+                   上:-3
+                   下:3
+        */
+        window.onload = function () {
+            var div = document.querySelector('.div');
+
+            if (div.addEventListener) {
+                div.addEventListener('DOMMouseScroll', fn, false);
             }
-            .div2{
-                border-radius:50%;
-                overflow: hidden;
-            }
-        </style>
-        <script>
-            /*
-                鼠标滚轮事件
-                ie/chrome:onmousewheel
-            */
-            window.onload=function(){
-                var div=document.querySelector('.div');
-                div.onmousewheel=function () {
-                    console.log(1);
-                    div.style.width='50px';
+
+            function fn(ev) {
+                var b = true;
+                if (ev.wheelDelta) {
+                    b = ev.wheelDelta > 0 ? true : false;
+                } else {
+                    b = ev.detail < 0 ? true : false;
                 }
-            }
-        </script>
-    </head>
-    <body>
-        <div class="div">
-            
-        </div>
-        <div class="div2"><a href=""><img src="../images/14.jpg" alt=""></a></div>
-    </body>
+                if(b){
+                    div.style.height=this.offsetHeight-10+'px';
+                    div.style.width=this.offsetWidth-10+'px';
+                }else {
+
+                    div.style.height=this.offsetHeight+10+'px';
+                    div.style.width=this.offsetWidth+10+'px';
+                }
+                ev.preventDefault();
+            };
+            div.onmousewheel=fn;
+        }
+    </script>
+</head>
+<body>
+<div class="div">
+
+</div>
+</body>
 </html>
