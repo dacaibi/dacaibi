@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background: greenyellow;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var btn=document.querySelector('input');
+            var div=document.querySelector('div');
+            var timer=null;
+            var speed=80;
+            btn.onclick=function () {
+                startMove()
+            };
+            
+            function startMove() {
+                clearInterval(timer);
+                timer=setInterval(function () {
+                    speed-=3;
+                    div.style.left=div.offsetLeft+speed+'px';
+                },30)
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="开始运动">
+    <div class="div1"></div>
+</body>
+</html>

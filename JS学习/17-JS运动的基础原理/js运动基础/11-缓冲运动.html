@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 30px;
+        }
+    </style>
+    <script>
+        //摩擦，减速:在运动的过程中，速度越来越慢
+        window.onload = function () {
+            var btn = document.querySelector('.btn');
+            var div = document.querySelector('.div');
+            var timer = null;
+            var iSpeed = 50;
+
+            btn.onclick = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    iSpeed = (500 - div.offsetLeft) / 8;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (div.offsetLeft == 500) {
+                        clearInterval(timer)
+                    } else {
+                        div.style.left = div.offsetLeft + iSpeed + 'px'
+                    }
+                }, 30)
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="动起来" class="btn">
+<div class="div"></div>
+</body>
+</html>

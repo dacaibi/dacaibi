@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 428px;
+            height: 30px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 30px;
+            background: red;
+            border: 1px solid #000;
+            margin-right: 5px;
+            float: left;
+            list-style: none;
+            text-align: center;
+            line-height: 30px;
+            box-sizing: border-box;
+        }
+
+        #mark {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: pink;
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var mark = document.querySelector('#mark');
+            var box = document.querySelectorAll('.box');
+            var timer = null;
+            var timer2 = null;
+            var speed = 0;
+            for (var i = 0; i < box.length; i++) {
+                box[i].onmouseover = function () {
+                    clearInterval(timer2);
+                    startMove(this.offsetLeft);
+                };
+                box[i].onmouseout = function () {
+                    timer2=setInterval(function () {
+                        startMove(0);
+                    },100)
+                }
+            }
+            mark.onmouseover=function () {
+                clearInterval(timer2);
+            };
+            mark.onmouseout=function () {
+                timer2=setInterval(function () {
+                    startMove(0);
+                },100)
+            };
+
+            function startMove(iTarget) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    speed += (iTarget - mark.offsetLeft) / 6;
+                    speed *= 0.75;
+                    if (Math.abs(speed) <= 1 && Math.abs(iTarget - mark.offsetLeft) <= 1) {
+                        clearInterval(timer);
+                    } else {
+                        mark.style.left = mark.offsetLeft + speed + 'px';
+                    }
+                }, 30)
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li id="mark"></li>
+    <li class="box">首页</li>
+    <li class="box">论坛</li>
+    <li class="box">视频</li>
+    <li class="box">留言</li>
+</ul>
+</body>
+</html>

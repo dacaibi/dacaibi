@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: greenyellow;
+            position: absolute;
+            left: 0;
+        }
+
+        .bg {
+            width: 1px;
+            height: 500px;
+            background: #000;
+            position: absolute;
+            left: 500px;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.querySelector('input');
+            var div = document.querySelector('div');
+            var timer = null;
+            var speed = 0;
+            btn.onclick = function () {
+                startMove()
+            };
+
+            function startMove() {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    /*
+                    if(div.offsetLeft<500){
+                        speed+=(500-div.offsetLeft)/50;
+                    }else {
+                        speed-=(div.offsetLeft-500)/50;
+                    }
+                    */
+                    speed += (500 - div.offsetLeft) / 6;
+                    speed *= 0.75;
+                    if (Math.abs(speed) <= 1 && Math.abs(500 - div.offsetLeft) <= 1) {
+                        clearInterval(timer);
+                        div.style.left='500px';
+                        speed=0;
+                        console.log(123)
+                    } else {
+                        div.style.left = div.offsetLeft + speed + 'px';
+                    }
+                }, 30)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="开始运动">
+<div class="div1"></div>
+<div class="bg"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 30px;
+        }
+    </style>
+    <script>
+        /*
+            在JS中,如果让一个页面元素动起来
+                点击按钮让div横向向右移动
+                定时器
+            1.清除定时器,保证运动过程中只有一个定时器在执行
+            2.开启定时器,
+            3.开始运动(同时在运动中加入判断,以便在需要的时候或者是满足某个要求的时候停止运动)
+        */
+        window.onload=function () {
+            var btn=document.querySelector('.btn');
+            var div=document.querySelector('.div');
+            var timer=null;
+
+            btn.onclick=function () {
+                startMove();
+            };
+            function startMove() {
+                clearInterval(timer);
+                timer=setInterval(function () {
+                    if(div.offsetLeft===500){
+                        clearInterval(timer);
+                    }else {
+                        div.style.left=div.offsetLeft+10+'px';
+                    }
+                },30)
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="动起来" class="btn">
+<div class="div"></div>
+</body>
+</html>

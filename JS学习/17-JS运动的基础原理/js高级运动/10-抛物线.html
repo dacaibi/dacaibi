@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div{
+            width: 100px;
+            height: 100px;
+            background: #4BC587;
+            position: absolute;
+            top: 550px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var btn=document.querySelector('#btn');
+            var div=document.querySelector('#div');
+            var timer=null;
+            var speed=-40;
+            var iSpeed=10;
+            btn.onclick=function () {
+                startMove();
+            };
+            function startMove() {
+                clearInterval(timer);
+                timer=setInterval(function () {
+                    speed+=3;
+                    var T=div.offsetTop+speed;
+                    if(T>document.documentElement.clientHeight-div.offsetHeight){
+                        T=document.documentElement.clientHeight-div.offsetHeight;
+                        speed*=-1;
+                        speed*=0.75;
+                        iSpeed*=0.75;
+                    }
+                    div.style.top=T+'px';
+                    div.style.left=div.offsetLeft+iSpeed+'px';
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="btn" type="button" value="开始运动">
+<div id="div"></div>
+</body>
+</html>

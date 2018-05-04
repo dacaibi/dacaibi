@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul {
+            margin: 100px auto 0;
+            padding: 0;
+            width: 330px;
+            position: relative;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+            list-style: none;
+            margin: 10px 0 0 10px;
+        }
+    </style>
+    <script>
+        /*
+        元素居中放大:除了要改变元素的宽高以外,还要改变元素定位(left,top)
+        如果图片放大一倍,那么位移放大的宽高的一半
+        元素必须是定位的
+        */
+        window.onload = function () {
+            //转换布局的时候，相对用户眼睛看的位置保持不变
+            //offsetLeft[top];
+            var ul = document.querySelector('ul');
+            var li = ul.querySelectorAll('li');
+            var arr=[];
+            var zIndex=1;
+
+            for (var i = 0; i < li.length; i++) {
+                arr.push({left:li[i].offsetLeft,top:li[i].offsetTop})
+            }
+
+            for (var i = 0; i < li.length; i++) {
+                li[i].index=i;
+                //再用js去设置css样式的同时,在同一块代码中,有些css样式
+                //的设置权限要高于其他的样式
+                //li[i].style.left=li[i].offsetLeft+'px';
+                //li[i].style.top=li[i].offsetTop+'px';
+                li[i].style.left=arr[i].left+'px';
+                li[i].style.top=arr[i].top+'px';
+                li[i].style.position='absolute';
+                li[i].style.margin='0px';
+
+                li[i].onmouseover=function () {
+                    this.style.background='green';
+                    this.style.zIndex=zIndex++;
+                    startMove(this,{
+                        width:200,
+                        height:200,
+                        left:arr[this.index].left-50,
+                        top:arr[this.index].top-50,
+                    })
+                };
+                li[i].onmouseout=function () {
+                    this.style.background='red';
+                    startMove(this,{
+                        width:100,
+                        height:100,
+                        left:arr[this.index].left,
+                        top:arr[this.index].top,
+                    })
+                }
+            }
+        }
+    </script>
+    <script src="move.js"></script>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

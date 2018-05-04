@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: -100px;
+            top: 100px;
+        }
+        .div2{
+            width: 30px;
+            height: 60px;
+            background: #000;
+            position: absolute;
+            right: -30px;
+            top: 70px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+    <script>
+        /*
+            在JS中,如果让一个页面元素动起来
+                点击按钮让div横向向右移动
+                定时器
+            1.清除定时器,保证运动过程中只有一个定时器在执行
+            2.开启定时器,
+            3.开始运动(同时在运动中加入判断,以便在需要的时候或者是满足某个要求的时候停止运动)
+        */
+        window.onload=function () {
+            var div1=document.querySelector('.div1');
+            var div2=document.querySelector('.div2');
+            var timer=null;
+
+            div1.onmouseover=function(){
+                //this.style.left='0px';
+                startMove(div1)
+            };
+            div1.onmouseout=function(){
+                //this.style.left='-100px'
+            };
+
+            function startMove(obj) {
+                clearInterval(timer);
+                timer=setInterval(function () {
+                    if(obj.offsetLeft===0){
+                        clearInterval(timer);
+                    }else {
+                        obj.style.left=obj.offsetLeft+10+'px';
+                    }
+                },30)
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2">分享到</div>
+    </div>
+</body>
+</html>

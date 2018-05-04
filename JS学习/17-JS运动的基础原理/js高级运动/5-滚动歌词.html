@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1, .div2 {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .div2 {
+            color: red;
+            width: 15px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .div2 span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2000px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div = document.querySelector('.div2');
+            var span = document.querySelector('.span');
+            setInterval(function () {
+                div.style.left = div.offsetLeft + 1 + 'px';
+                span.style.left = -div.offsetLeft + 'px';
+            }, 30)
+        }
+    </script>
+</head>
+<body>
+<div class="div1">
+    <span>我的看的撒考虑到好卡机山东矿机爱上大口径</span>
+</div>
+<div class="div2">
+    <span class="span">我的看的撒考虑到好卡机山东矿机爱上大口径</span>
+</div>
+</body>
+</html>

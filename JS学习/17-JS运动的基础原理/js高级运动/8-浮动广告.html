@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div{
+            width: 100px;
+            height: 100px;
+            background: #4bc585;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var div=document.querySelector('.div');
+            var speedX=10;
+            var speedY=10;
+            startMove();
+            function startMove() {
+                setInterval(function () {
+                    var L=div.offsetLeft+speedX;
+                    var T=div.offsetTop+speedY;
+                    if(T>document.documentElement.clientHeight-div.offsetHeight){
+                        T=document.documentElement.clientHeight-div.offsetHeight;
+                        speedY*=-1;
+                    }else if(T<0){
+                        T=0;
+                        speedY*=-1;
+                    }
+                    if(L>document.documentElement.clientWidth-div.offsetWidth){
+                        L=document.documentElement.clientWidth-div.offsetWidth;
+                        speedX*=-1;
+                    }else if(L<0){
+                        L=0;
+                        speedX*=-1;
+                    }
+                    div.style.left=L+'px';
+                    div.style.top=T+'px';
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="div"></div>
+</body>
+</html>
