@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //match:正则去匹配字符串,如果匹配成功,就返回匹配成功的数组,如果匹配不成功,就返回null
+        //match的写法: 字符串.match（正则）
+        //正则默认:正则匹配成功就会结束,不会继续匹配
+        //如果想全部查找,就要加标识g(全局匹配)
+        //量词:匹配不确定的位置
+        //+:至少出现一次
+        var str='dsafsdfas4156dasd456465dasda654564';
+        var re=/\d+/g;
+        console.log(str.match(re))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

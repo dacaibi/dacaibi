@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //search:正则去匹配字符串,如果匹配成功,就返回匹配成功的位置,如果匹配失败,就返回-1
+        //search:字符串.search(正则)
+        //正则中的默认:是区分大小写的
+        //如果不区分大小写的话,在正则的最后加标识i
+        var str = 'abcdef';
+        var re = /B/i;
+        var re= new RegExp('B','i');
+        console.log(str.search(re));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

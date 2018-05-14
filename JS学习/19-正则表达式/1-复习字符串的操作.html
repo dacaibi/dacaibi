@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*console.log('a' < 'b');
+        var str = 'a';
+        if (str <= '9' && str > '0') {
+            console.log('是数字')
+        } else {
+            console.log('不是数字')
+        }*/
+        //找出字符串中的数字
+        var str = 'ds564afs564sfs321';
+
+        function finNum(str) {
+            var arr = [];
+            var tmp='';
+            for (var i = 0; i < str.length; i++) {
+                if (str.charAt(i) <= '9' && str.charAt(i) >= '0') {
+                    tmp+=str.charAt(i);
+                    arr.push(str.charAt(i));
+                }else {
+                    if(tmp){
+                        arr.push(tmp);
+                        tmp='';
+                    }
+                }
+            }
+            if(tmp){
+                arr.push(tmp);
+                tmp='';
+            }
+            return arr;
+        }
+
+        console.log(finNum(str));//564,5,4,564,2,32
+    </script>
+</head>
+<body>
+
+</body>
+</html>

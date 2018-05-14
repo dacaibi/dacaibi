@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //傻逼大弱智去死吧草拟妈的
+        //|：或的意思
+        //replace:第二个参数:可以是字符串,也可以是一个回调函数
+        window.onload = function () {
+            var aT = document.querySelectorAll('textarea');
+            var oInput = document.querySelector('input');
+            var re = /傻逼|弱智|妈的/g;
+            oInput.onclick = function () {
+                //aT[1].value = aT[0].value.replace(re, '*');
+                aT[1].value = aT[0].value.replace(re, function (str) {
+                    //函数的第一个参数:就是匹配成功的字符
+                    var result = '';
+                    for (var i = 0; i < str.length; i++) {
+                        result+='*';
+                        result
+                    }
+                    return result;
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+替换前<br/>
+<textarea>
+</textarea><br/>
+替换后<br/>
+<textarea>
+</textarea><br/>
+<input type="button" value="确定">
+</body>
+</html>
